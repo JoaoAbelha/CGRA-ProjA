@@ -1,5 +1,5 @@
 /**
- * MyTree
+ * MyTreeGroupPatch
  * @constructor
  */
 
