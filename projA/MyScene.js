@@ -23,14 +23,16 @@ class MyScene extends CGFscene {
         this.axis = new CGFaxis(this);
         
         let slices = 6;
+        let stack = 1;
         this.prism = new MyPrism(this,slices,1);
         this.cylinder = new MyCylinder(this, slices, 1);
         this.cone = new MyCone(this,slices, 1);
+        this.tree = new MyTree(this, slices, stack);
         
 
         this.displayNormals = false;
-        this.objects = [this.prism, this.cylinder, this.cone];
-        this.objectIDs = {'Prism' : 0, 'Cylinder' : 1, 'Cone':2};
+        this.objects = [this.prism, this.cylinder, this.cone, this.tree];
+        this.objectIDs = {'Prism' : 0, 'Cylinder' : 1, 'Cone':2, 'Tree' : 3};
 
         this.selectedObject = 0;
         this.displayNormals = false;
