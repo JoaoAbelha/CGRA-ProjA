@@ -24,11 +24,12 @@ class MyScene extends CGFscene {
         
         let slices = 6;
         this.prism = new MyPrism(this,slices,1);
-        this.prism2 = new MyPrism(this, slices , 1 );
+        this.cylinder = new MyCylinder(this, slices, 1);
+        
 
         this.displayNormals = false;
-        this.objects = [this.prism];
-        this.objectIDs = {'Prism' : 0};
+        this.objects = [this.prism, this.cylinder];
+        this.objectIDs = {'Prism' : 0, 'Cylinder' : 1};
 
         this.selectedObject = 0;
         this.displayNormals = false;
@@ -67,10 +68,7 @@ class MyScene extends CGFscene {
         // Draw axis
         this.axis.display();
 
-        // draw objects
-        this.prism.display();
-        this.translate(5,0,0);
-        this.prism2.display();
+       
 
         //Apply default appearance
         this.setDefaultAppearance();
