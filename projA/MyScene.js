@@ -25,11 +25,12 @@ class MyScene extends CGFscene {
         let slices = 6;
         this.prism = new MyPrism(this,slices,1);
         this.cylinder = new MyCylinder(this, slices, 1);
+        this.cone = new MyCone(this,slices, 1);
         
 
         this.displayNormals = false;
-        this.objects = [this.prism, this.cylinder];
-        this.objectIDs = {'Prism' : 0, 'Cylinder' : 1};
+        this.objects = [this.prism, this.cylinder, this.cone];
+        this.objectIDs = {'Prism' : 0, 'Cylinder' : 1, 'Cone':2};
 
         this.selectedObject = 0;
         this.displayNormals = false;
