@@ -31,7 +31,6 @@ class MyCone extends CGFobject {
         this.primitiveType = this.scene.gl.TRIANGLES;
         this.initGLBuffers();
     }
-    
     updateBuffers(complexity){
         this.slices = 3 + Math.round(9 * complexity); //complexity varies 0-1, so slices varies 3-12
 

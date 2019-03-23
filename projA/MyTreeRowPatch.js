@@ -9,7 +9,6 @@ class MyTreeRowPatch extends CGFobject {
         this.tree = new MyTree(scene, 6, 1,1,1);
 
     };
-
     display() {
         const side = 6;
 

@@ -63,8 +63,6 @@ class MyUnitCubeQuad extends CGFobject {
         this.side.display();
         this.scene.popMatrix();
         this.scene.pushMatrix();
-
-
     }
     
 }

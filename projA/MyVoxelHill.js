@@ -11,11 +11,6 @@ class MyVoxelHill extends CGFobject {
 
     };
 
-
-    
-
-
-
     // // possivelmente melhorar ciclo
     // display() {
     //   let side = 1; // se mudar fazer scalling

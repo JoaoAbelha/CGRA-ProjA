@@ -9,7 +9,6 @@ class MyTreeGroupPatch extends CGFobject {
         this.tree = new MyTree(scene, 6, 1,1,1);
 
     };
-
     display() {
         const side = 3;
 
@@ -21,6 +20,5 @@ class MyTreeGroupPatch extends CGFobject {
                 this.tree.display();
                 this.scene.popMatrix();
             }
-
     };
 }

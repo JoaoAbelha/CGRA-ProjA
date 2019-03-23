@@ -6,7 +6,6 @@ class MyInterface extends CGFinterface {
     constructor() {
         super();
     }
-
     init(application) {
         // call CGFinterface init
         super.init(application);

@@ -22,7 +22,6 @@ class MyPrism extends CGFobject
     this.normals = [];
     //this.textCoords = [];
     
-
     let alphaAng = 2*Math.PI/this.slices;
     let stack = 1 / this.stacks;
     

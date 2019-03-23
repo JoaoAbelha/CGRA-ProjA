@@ -11,7 +11,6 @@ class MyHouse extends CGFobject {
         
 
     };
-
     display() {
         let houseSide = 1;
         let roofSide = 1.5;

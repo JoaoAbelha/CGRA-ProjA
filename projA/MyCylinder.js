@@ -13,7 +13,6 @@ class MyCylinder extends CGFobject
     this.stacks = stacks;
     this.initBuffers();
   }
-
   initBuffers()
 	{
 		this.vertices = [];

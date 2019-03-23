@@ -30,5 +30,4 @@
         this.trunk.display();
         this.scene.popMatrix();
     };
-     
  }

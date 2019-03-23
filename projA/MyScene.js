@@ -90,8 +90,6 @@ class MyScene extends CGFscene {
         
         this.objects[this.selectedObject].display();
         
-
-
         // ---- END Primitive drawing section
     }
 }
