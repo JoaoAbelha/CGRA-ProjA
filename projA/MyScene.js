@@ -30,11 +30,12 @@ class MyScene extends CGFscene {
         this.tree = new MyTree(this, slices, stack,1,1);
         this.groupPatch = new MyTreeGroupPatch(this);
         this.rowPatch = new MyTreeRowPatch(this);
+        this.house = new MyHouse(this);
         
 
         this.displayNormals = false;
-        this.objects = [this.prism, this.cylinder, this.cone, this.tree, this.groupPatch, this.rowPatch] ;
-        this.objectIDs = {'Prism' : 0, 'Cylinder' : 1, 'Cone':2, 'Tree' : 3 , 'Groupesquare':4, 'RowPatch':5 };
+        this.objects = [this.prism, this.cylinder, this.cone, this.tree, this.groupPatch, this.rowPatch, this.house] ;
+        this.objectIDs = {'Prism' : 0, 'Cylinder' : 1, 'Cone':2, 'Tree' : 3 , 'Groupesquare':4, 'RowPatch':5, 'House':6 };
 
         this.selectedObject = 0;
         this.displayNormals = false;
