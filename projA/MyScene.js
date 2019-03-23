@@ -31,11 +31,12 @@ class MyScene extends CGFscene {
         this.groupPatch = new MyTreeGroupPatch(this);
         this.rowPatch = new MyTreeRowPatch(this);
         this.house = new MyHouse(this);
+        this.hill = new MyVoxelHill(this,3);
         
 
         this.displayNormals = false;
-        this.objects = [this.prism, this.cylinder, this.cone, this.tree, this.groupPatch, this.rowPatch, this.house] ;
-        this.objectIDs = {'Prism' : 0, 'Cylinder' : 1, 'Cone':2, 'Tree' : 3 , 'Groupesquare':4, 'RowPatch':5, 'House':6 };
+        this.objects = [this.prism, this.cylinder, this.cone, this.tree, this.groupPatch, this.rowPatch, this.house, this.hill] ;
+        this.objectIDs = {'Prism' : 0, 'Cylinder' : 1, 'Cone':2, 'Tree' : 3 , 'Groupesquare':4, 'RowPatch':5, 'House':6 ,"Hill":7};
 
         this.selectedObject = 0;
         this.displayNormals = false;
