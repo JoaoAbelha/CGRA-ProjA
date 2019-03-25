@@ -28,7 +28,7 @@ class MyScene extends CGFscene {
         this.prism = new MyPrism(this,slices,1);
         this.cylinder = new MyCylinder(this, slices, 1);
         this.cone = new MyCone(this,slices, 1);
-        this.tree = new MyTree(this, slices, stack,1,1);
+        this.tree = new MyTree(this, slices, stack,1.5,0.5,2,1);
         this.groupPatch = new MyTreeGroupPatch(this);
         this.rowPatch = new MyTreeRowPatch(this);
         this.house = new MyHouse(this);
@@ -85,7 +85,9 @@ class MyScene extends CGFscene {
             0.0, this.scaleFactor, 0.0, 0.0,
             0.0, 0.0, this.scaleFactor, 0.0,
             0.0, 0.0, 0.0, 1.0];
-this.multMatrix(sca);
+
+        
+        this.multMatrix(sca);
 
         // ---- BEGIN Primitive drawing section
       

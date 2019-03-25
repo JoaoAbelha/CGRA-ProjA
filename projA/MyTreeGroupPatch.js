@@ -6,7 +6,7 @@
 class MyTreeGroupPatch extends CGFobject {
     constructor(scene) {
         super(scene);
-        this.tree = new MyTree(scene, 6, 1,1,1);
+        this.tree = new MyTree(scene, 6, 1,1.5,0.5,2,1);
 
         this.displacementsOnX = [];
         for(let i = 0; i < 9; i++) {

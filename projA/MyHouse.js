@@ -13,18 +13,29 @@ class MyHouse extends CGFobject {
     };
     display() {
         let houseSide = 1;
-        let roofSide = 1.5;
+        let roofWidth = 2;
+        let roofLength = 2.5;
+        let houseWidht = 4;
+        let houseLenght = 5;
+        let houseHeight = 3;
         //let garageside = 1.5;
         this.scene.pushMatrix();
-        this.scene.translate(0, houseSide/2,0);
-        this.scene.scale(houseSide,houseSide,houseSide);
+        this.scene.scale(houseWidht, houseHeight, houseLenght);
+        this.scene.translate(0 ,0.5, 0);
         this.cube.display();
         this.scene.popMatrix();
 
         this.scene.pushMatrix();
-        this.scene.translate(0,houseSide/2, 0);
-        this.scene.scale(roofSide,1,roofSide);
-        //this.scene.rotate(0,Math.pi/4,0,1);
+        this.scene.scale(houseWidht, houseHeight, houseLenght);
+        this.scene.translate(0 ,0.5, 0);
+        this.cube.display();
+        this.scene.popMatrix();
+
+        this.scene.pushMatrix();
+        //this.scene.translate(0,houseSide/2, 0);
+        //this.scene.scale(roofWidth,1,roofLength);
+        this.scene.translate(0, 0.1, 0);
+        this.scene.rotate(Math.PI/4, 0, 1, 0);
         this.pyramid.display();
         this.scene.popMatrix();
 
