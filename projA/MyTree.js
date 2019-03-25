@@ -25,7 +25,8 @@
         this.scene.popMatrix();
         
         this.scene.pushMatrix();
-        this.scene.rotate(pi/2 ,0,0,1); // erro nao esta a rodar
+        this.scene.translate(0, this.trunkHeight, 0);
+        this.scene.rotate(pi/2 ,1,0,0); // erro nao esta a rodar
         this.scene.scale(this.trunkRadius,this.trunkHeight , this.trunkRadius);
         this.trunk.display();
         this.scene.popMatrix();
