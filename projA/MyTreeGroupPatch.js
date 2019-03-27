@@ -18,6 +18,11 @@ class MyTreeGroupPatch extends CGFobject {
             this.displacementsOnZ.push(Math.floor(Math.random() * 2)).toFixed(4);
         }
 
+        this.scaling = [];
+        for(let s = 0; s < 9; s++) {
+            this.scaling.push(Math.floor(Math.random() * 2)).toFixed(4);
+        }
+
     };
     display() {
         const side = 3;
@@ -28,6 +33,7 @@ class MyTreeGroupPatch extends CGFobject {
             for(let j = 0; j<  side; j++) {
                 this.scene.pushMatrix();
                 this.scene.translate(4*i + this.displacementsOnX[counter] ,0, 4*j + this.displacementsOnZ[counter]);
+                this.scene.scale(1 + this.scaling[counter], 1 + this.scaling[counter], 1 + this.scaling[counter]);
                 this.tree.display();
                 this.scene.popMatrix();
                 counter++;
