@@ -26,8 +26,8 @@ class MyScene extends CGFscene {
         let slices = 6;
         let stack = 1;
         this.prism = new MyPrism(this,slices,1);
-        this.cylinder = new MyCylinder(this, slices, 1);
-        this.cone = new MyCone(this,slices, 1);
+        this.cylinder = new MyCylinder(this, 100, 100);
+        this.cone = new MyCone(this,100, 100);
         this.tree = new MyTree(this, slices, stack,1.5,0.5,2,1);
         this.groupPatch = new MyTreeGroupPatch(this);
         this.rowPatch = new MyTreeRowPatch(this);
