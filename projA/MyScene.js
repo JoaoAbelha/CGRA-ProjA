@@ -32,7 +32,7 @@ class MyScene extends CGFscene {
         this.groupPatch = new MyTreeGroupPatch(this);
         this.rowPatch = new MyTreeRowPatch(this);
         this.house = new MyHouse(this);
-        this.hill = new MyVoxelHill(this,3);
+        this.hill = new MyVoxelHill(this,8);
         
 
         this.displayNormals = false;
