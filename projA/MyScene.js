@@ -41,6 +41,18 @@ class MyScene extends CGFscene {
 
         this.selectedObject = 0;
         this.displayNormals = false;
+
+
+        // Applied Materials - ver valores
+
+        this.water = new CGFappearance(this);
+        this.water.setAmbient(0.5, 0.5, 0.5, 1);
+        this.water.setDiffuse(0.1, 0.1, 0.1, 1);
+        this.water.setSpecular(0.8, 0.8, 0.8, 1);
+        this.water.setShininess(200.0);
+        this.water.loadTexture('images/water.png');
+        this.water.setTextureWrap('REPEAT', 'REPEAT');
+
      
 
         //Objects connected to MyInterface
@@ -91,7 +103,10 @@ class MyScene extends CGFscene {
 
         // ---- BEGIN Primitive drawing section
       
-        
+        // apply materials
+            
+
+
         if (this.displayNormals)
             this.objects[this.selectedObject].enableNormalViz();
         else
