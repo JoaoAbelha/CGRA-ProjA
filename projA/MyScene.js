@@ -52,6 +52,7 @@ class MyScene extends CGFscene {
         this.water.setShininess(200.0);
         this.water.loadTexture('images/water.png');
         this.water.setTextureWrap('REPEAT', 'REPEAT');
+        this.enableTextures(true);
 
      
 
@@ -62,6 +63,9 @@ class MyScene extends CGFscene {
         
         this.lights[0].setPosition(5, 2, 5, 1);
         this.lights[0].setDiffuse(1.0, 1.0, 1.0, 1.0);
+        this.lights[3].setConstantAttenuation(1);
+		this.lights[3].setLinearAttenuation(0.0);
+		this.lights[3].setQuadraticAttenuation(0.05);
         this.lights[0].enable();
         this.lights[0].setVisible(true);
         this.lights[0].update();
