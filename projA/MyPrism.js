@@ -20,7 +20,7 @@ class MyPrism extends CGFobject
 	this.vertices = [];
     this.indices = [];
     this.normals = [];
-    //this.textCoords = [];
+    this.texCoords = [];
     
     let alphaAng = 2*Math.PI/this.slices;
     let stack = 1 / this.stacks;
@@ -33,7 +33,17 @@ class MyPrism extends CGFobject
       
       this.normals.push(Math.cos(alphaAng*i+alphaAng/2),Math.sin(alphaAng*i+alphaAng/2),0);
       this.normals.push(Math.cos(alphaAng*i+alphaAng/2),Math.sin(alphaAng*i+alphaAng/2),0);
+    
+      this.texCoords.push(
+        i*1/this.slices, k*1/this.stacks,
+        (i+1)*1/this.slices, k*1/this.stacks,
+        i*1/this.slices, (k+1)*1/this.stacks,
+        (i+1)*1/this.slices, (k+1)*1/this.stacks
+      );
+    
     }
+
+    
   }
 
   var indexNumber = 2 * this.slices * this.stacks;

@@ -16,6 +16,7 @@ serialInclude(['../lib/CGF.js',
                  'MyPyramid.js',
                  'MyHouse.js',
                  'MyVoxelHill.js',
+
                  
 
 main=function()

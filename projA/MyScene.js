@@ -58,10 +58,14 @@ class MyScene extends CGFscene {
         //Objects connected to MyInterface
     }
     initLights() {
-        this.lights[0].setPosition(15, 2, 5, 1);
+        this.setGlobalAmbientLight(0.3, 0.3, 0.3, 1.0);
+        
+        this.lights[0].setPosition(5, 2, 5, 1);
         this.lights[0].setDiffuse(1.0, 1.0, 1.0, 1.0);
         this.lights[0].enable();
+        this.lights[0].setVisible(true);
         this.lights[0].update();
+
     }
     initCameras() {
         this.camera = new CGFcamera(0.4, 0.1, 500, vec3.fromValues(15, 15, 15), vec3.fromValues(0, 0, 0));
@@ -84,6 +88,8 @@ class MyScene extends CGFscene {
         this.loadIdentity();
         // Apply transformations corresponding to the camera position relative to the origin
         this.applyViewMatrix();
+
+        this.lights[0].update();
 
         // Draw axis
         this.axis.display();
