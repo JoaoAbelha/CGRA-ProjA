@@ -33,11 +33,12 @@ class MyScene extends CGFscene {
         this.rowPatch = new MyTreeRowPatch(this);
         this.house = new MyHouse(this);
         this.hill = new MyVoxelHill(this,8);
+        this.image = new MyCubeMap(this);
         
 
         this.displayNormals = false;
-        this.objects = [this.prism, this.cylinder, this.cone, this.tree, this.groupPatch, this.rowPatch, this.house, this.hill] ;
-        this.objectIDs = {'Prism' : 0, 'Cylinder' : 1, 'Cone':2, 'Tree' : 3 , 'Groupesquare':4, 'RowPatch':5, 'House':6 ,"Hill":7};
+        this.objects = [this.prism, this.cylinder, this.cone, this.tree, this.groupPatch, this.rowPatch, this.house, this.hill, this.image] ;
+        this.objectIDs = {'Prism' : 0, 'Cylinder' : 1, 'Cone':2, 'Tree' : 3 , 'Groupesquare':4, 'RowPatch':5, 'House':6 ,"Hill":7, "Image": 8};
 
         this.selectedObject = 0;
         this.displayNormals = false;
@@ -46,9 +47,9 @@ class MyScene extends CGFscene {
         // Applied Materials - ver valores
 
         this.water = new CGFappearance(this);
-        this.water.setAmbient(0.5, 0.5, 0.5, 1);
-        this.water.setDiffuse(0.1, 0.1, 0.1, 1);
-        this.water.setSpecular(0.8, 0.8, 0.8, 1);
+        this.water.setAmbient(0.6, 0.6, 0.6, 1);
+        this.water.setDiffuse(0.3, 0.3, 0.3, 1);
+        this.water.setSpecular(0.8, 0.9, 0.8, 1);
         this.water.setShininess(200.0);
         this.water.loadTexture('images/water.png');
         this.water.setTextureWrap('REPEAT', 'REPEAT');
@@ -63,9 +64,9 @@ class MyScene extends CGFscene {
         
         this.lights[0].setPosition(5, 2, 5, 1);
         this.lights[0].setDiffuse(1.0, 1.0, 1.0, 1.0);
-        this.lights[3].setConstantAttenuation(1);
-		this.lights[3].setLinearAttenuation(0.0);
-		this.lights[3].setQuadraticAttenuation(0.05);
+        this.lights[0].setConstantAttenuation(1);
+		this.lights[0].setLinearAttenuation(0.0);
+		this.lights[0].setQuadraticAttenuation(0.05);
         this.lights[0].enable();
         this.lights[0].setVisible(true);
         this.lights[0].update();
