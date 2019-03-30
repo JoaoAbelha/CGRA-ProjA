@@ -24,13 +24,15 @@
         this.scene.pushMatrix();
         this.scene.translate(0,this.trunkHeight,0);
         this.scene.scale(this.treeTopRadius, this.treeTopHeight, this.treeTopRadius);
+        this.scene.trunk.apply();
         this.cone.display();
         this.scene.popMatrix();
         
         this.scene.pushMatrix();
         this.scene.translate(0, this.trunkHeight, 0);
         this.scene.scale(this.trunkRadius,this.trunkHeight , this.trunkRadius);
-        this.scene.rotate(pi/2 ,1,0,0); // erro nao esta a rodar    
+        this.scene.rotate(pi/2 ,1,0,0);
+        this.scene.trunk.apply();
         this.trunk.display();
         this.scene.popMatrix();
     };

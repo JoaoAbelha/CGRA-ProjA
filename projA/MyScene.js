@@ -48,14 +48,24 @@ class MyScene extends CGFscene {
 
         this.water = new CGFappearance(this);
         this.water.setAmbient(0.6, 0.6, 0.6, 1);
-        this.water.setDiffuse(0.3, 0.3, 0.3, 1);
+        this.water.setDiffuse(0.8, 0.8, 0.8, 1);
         this.water.setSpecular(0.8, 0.9, 0.8, 1);
         this.water.setShininess(200.0);
         this.water.loadTexture('images/water.png');
         this.water.setTextureWrap('REPEAT', 'REPEAT');
+     
+
+        this.trunk = new CGFappearance(this);
+        this.trunk.setAmbient(0.6, 0.6, 0.6, 1);
+        this.trunk.setDiffuse(0.8, 0.8, 0.8, 1);
+        this.trunk.setSpecular(0.8, 0.9, 0.8, 1);
+        this.trunk.setShininess(200.0);
+        this.trunk.loadTexture('images/trunk.jpg');
+        this.trunk.setTextureWrap('REPEAT', 'REPEAT');
+
+
         this.enableTextures(true);
 
-     
 
         //Objects connected to MyInterface
     }
