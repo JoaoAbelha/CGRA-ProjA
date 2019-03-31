@@ -13,6 +13,7 @@ class MyCone extends CGFobject {
         this.vertices = [];
         this.indices = [];
         this.normals = [];
+        this.texCoords = [];
 
         var ang = 0;
         var alphaAng = 2*Math.PI/this.slices;
@@ -21,6 +22,7 @@ class MyCone extends CGFobject {
 
             this.vertices.push(Math.cos(ang), 0, -Math.sin(ang));
             this.indices.push(i, (i+1) % this.slices, this.slices);
+            //this.texCoords.push(i/this.slices, i/this.slices);
             this.normals.push(Math.cos(ang), Math.cos(Math.PI/4.0), -Math.sin(ang));
             ang+=alphaAng;
         }
