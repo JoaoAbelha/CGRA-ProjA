@@ -54,7 +54,6 @@ class MyScene extends CGFscene {
         this.water.loadTexture('images/water.png');
         this.water.setTextureWrap('REPEAT', 'REPEAT');
      
-
         this.trunk = new CGFappearance(this);
         this.trunk.setAmbient(0.6, 0.6, 0.6, 1);
         this.trunk.setDiffuse(0.8, 0.8, 0.8, 1);
@@ -71,6 +70,29 @@ class MyScene extends CGFscene {
         this.treetop.loadTexture('images/treetop.jpg');
         this.treetop.setTextureWrap('REPEAT', 'REPEAT');
 
+        this.side = new CGFappearance(this);
+        this.side.setAmbient(0.1, 0.1, 0.1, 1);
+        this.side.setDiffuse(0.9, 0.9, 0.9, 1);
+        this.side.setSpecular(0.1, 0.1, 0.1, 1);
+        this.side.setShininess(10.0);
+        this.side.loadTexture('images/mineSide.png');
+        this.side.setTextureWrap('REPEAT', 'REPEAT');
+
+        this.top = new CGFappearance(this);
+        this.top.setAmbient(0.1, 0.1, 0.1, 1);
+        this.top.setDiffuse(0.9, 0.9, 0.9, 1);
+        this.top.setSpecular(0.1, 0.1, 0.1, 1);
+        this.top.setShininess(10.0);
+        this.top.loadTexture('images/mineTop.png');
+        this.top.setTextureWrap('REPEAT', 'REPEAT');
+
+        this.bottom = new CGFappearance(this);
+        this.bottom.setAmbient(0.1, 0.1, 0.1, 1);
+        this.bottom.setDiffuse(0.9, 0.9, 0.9, 1);
+        this.bottom.setSpecular(0.1, 0.1, 0.1, 1);
+        this.bottom.setShininess(10.0);
+        this.bottom.loadTexture('images/mineBottom.png');
+        this.bottom.setTextureWrap('REPEAT', 'REPEAT');
 
         this.enableTextures(true);
 

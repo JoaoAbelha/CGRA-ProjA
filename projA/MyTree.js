@@ -24,7 +24,7 @@
         this.scene.pushMatrix();
         this.scene.translate(0,this.trunkHeight,0);
         this.scene.scale(this.treeTopRadius, this.treeTopHeight, this.treeTopRadius);
-       // this.scene.trunk.apply();
+        this.scene.treetop.apply();
         this.cone.display();
         this.scene.popMatrix();
         
