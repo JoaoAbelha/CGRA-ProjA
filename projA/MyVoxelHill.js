@@ -17,7 +17,7 @@ class MyVoxelHill extends CGFobject {
         //DUVIDA: as translações estão a acumular-se
         this.scene.pushMatrix();
         this.scene.translate(0,0.5,0);
-        this.cube.display();
+        this.cube.displayHillCube();
  
        for(let i = 0 ; i < this.niveis; i++) {
             this.draw(this.niveis - i, i);
@@ -32,22 +32,22 @@ class MyVoxelHill extends CGFobject {
             for(let j = 0 ; j < lado ; j++) {
                 this.scene.pushMatrix();
                 this.scene.translate(i,nivel,j);
-                this.cube.display();
+                this.cube.displayHillCube();
                 this.scene.popMatrix();
 
                 this.scene.pushMatrix();
                 this.scene.translate(-i,nivel,j);
-                this.cube.display();
+                this.cube.displayHillCube();
                 this.scene.popMatrix();
 
                 this.scene.pushMatrix();
                 this.scene.translate(i,nivel,-j);
-                this.cube.display();
+                this.cube.displayHillCube();
                 this.scene.popMatrix();
 
                 this.scene.pushMatrix();
                 this.scene.translate(-i,nivel,-j);
-                this.cube.display();
+                this.cube.displayHillCube();
                 this.scene.popMatrix();
             }
         }
