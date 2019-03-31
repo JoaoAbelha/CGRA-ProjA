@@ -100,9 +100,9 @@ class MyScene extends CGFscene {
         //Objects connected to MyInterface
     }
     initLights() {
-        this.setGlobalAmbientLight(0.3, 0.3, 0.3, 1.0);
+        this.setGlobalAmbientLight(0.8, 0.8, 0.8, 1.0);
         
-        this.lights[0].setPosition(5, 2, 5, 1);
+        this.lights[0].setPosition(0, 5, 0, 1);
         this.lights[0].setDiffuse(1.0, 1.0, 1.0, 1.0);
         this.lights[0].setConstantAttenuation(1);
 		this.lights[0].setLinearAttenuation(0.0);
