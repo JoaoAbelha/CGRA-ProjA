@@ -94,6 +94,14 @@ class MyScene extends CGFscene {
         this.bottom.loadTexture('images/mineBottom.png');
         this.bottom.setTextureWrap('REPEAT', 'REPEAT');
 
+        this.sky = new CGFappearance(this);
+        this.sky.setAmbient(1, 1, 1, 1);
+        this.sky.setDiffuse(0.9, 0.9, 0.9, 1);
+        this.sky.setSpecular(0.4, 0.4, 0.4, 1);
+        this.sky.setShininess(10.0);
+        this.sky.loadTexture('images/cloud1.png');
+        this.sky.setTextureWrap('REPEAT', 'REPEAT');
+
         this.enableTextures(true);
 
 
