@@ -27,8 +27,15 @@ class MyInterface extends CGFinterface {
         var f1 = this.gui.addFolder('Light 1 ');
         f1.add(this.scene.lights[1], 'enabled').name("Enabled");
 
-        var f2 = this.gui.addFolder('Light 2 ');
-        f2.add(this.scene.lights[2], 'enabled').name("Enabled")
+        var f = this.gui.addFolder('Light 2 ');
+        f.add(this.scene.lights[2], 'enabled').name("Enabled");
+
+        var f2 = this.gui.addFolder('Custom Material');
+        
+        f2.addColor(this.scene.customMaterialValues,'Ambient').onChange(this.scene.updateCustomMaterial.bind(this.scene));
+        f2.addColor(this.scene.customMaterialValues,'Diffuse').onChange(this.scene.updateCustomMaterial.bind(this.scene));
+        f2.addColor(this.scene.customMaterialValues,'Specular').onChange(this.scene.updateCustomMaterial.bind(this.scene));
+        f2.add(this.scene.customMaterialValues,'Shininess', 0, 100).onChange(this.scene.updateCustomMaterial.bind(this.scene));
 
         return true;
     }

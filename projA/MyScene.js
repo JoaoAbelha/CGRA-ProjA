@@ -44,7 +44,16 @@ class MyScene extends CGFscene {
         this.displayNormals = false;
         this.ambientLight = 0.8;
 
+        this.customMaterialValues = {
+            'Ambient': '#0000ff',
+            'Diffuse': '#ff0000',
+            'Specular': '#000000',
+            'Shininess': 10
+        }
 
+        this.customMaterial = new CGFappearance(this);
+
+        this.updateCustomMaterial();
 
         // Applied Materials - ver valores
 
@@ -157,20 +166,55 @@ class MyScene extends CGFscene {
 
         //Objects connected to MyInterface
     }
+    updateCustomMaterial() {
+        var rgba;
+
+        this.customMaterial.setAmbient(...this.hexToRgbA(this.customMaterialValues['Ambient']));
+        this.customMaterial.setDiffuse(...this.hexToRgbA(this.customMaterialValues['Diffuse']));
+        this.customMaterial.setSpecular(...this.hexToRgbA(this.customMaterialValues['Specular']));
+
+        this.customMaterial.setShininess(this.customMaterialValues['Shininess']);
+
+    };
+
+    hexToRgbA(hex)
+    {
+        var ret;
+        //either we receive a html/css color or a RGB vector
+        if(/^#([A-Fa-f0-9]{3}){1,2}$/.test(hex)){
+            ret=[
+                parseInt(hex.substring(1,3),16).toPrecision()/255.0,
+                parseInt(hex.substring(3,5),16).toPrecision()/255.0,
+                parseInt(hex.substring(5,7),16).toPrecision()/255.0,
+                1.0
+            ];
+        }
+        else
+            ret=[
+                hex[0].toPrecision()/255.0,
+                hex[1].toPrecision()/255.0,
+                hex[2].toPrecision()/255.0,
+                1.0
+            ];
+        return ret;
+
+        }
+
+
     initLights() {
         this.setGlobalAmbientLight(0.8, 0.8, 0.8, 1.0);
         
-        //luz dia
-        this.lights[0].setPosition(0, 10, 0, 1);
+        //luz dia- sol
+        this.lights[0].setPosition(0, 20, 0, 1);
         this.lights[0].setDiffuse(1.0, 1.0, 1.0, 1.0);
         this.lights[0].setConstantAttenuation(1);
 		this.lights[0].setLinearAttenuation(0.0);
-        this.lights[0].setQuadraticAttenuation(0.05);
+        this.lights[0].setQuadraticAttenuation(0.0);
         this.lights[0].enable();
         this.lights[0].setVisible(true);
         this.lights[0].update();
         //luz noite 
-        this.lights[1].setPosition(0, 5, 0, 1);
+        this.lights[1].setPosition(0, 15, 0, 1);
         this.lights[1].setDiffuse(1.0, 1.0, 1.0, 1.0);
         this.lights[1].setConstantAttenuation(1);
 		this.lights[1].setLinearAttenuation(0.0);
