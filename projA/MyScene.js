@@ -42,7 +42,7 @@ class MyScene extends CGFscene {
 
         this.selectedObject = 0;
         this.displayNormals = false;
-        this.ambientLight = 0.3;
+        this.ambientLight = 0.8;
 
 
 
