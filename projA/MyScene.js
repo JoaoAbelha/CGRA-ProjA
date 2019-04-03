@@ -102,6 +102,54 @@ class MyScene extends CGFscene {
         this.sky.loadTexture('images/cloud1.png');
         this.sky.setTextureWrap('REPEAT', 'REPEAT');
 
+        this.hillsBK = new CGFappearance(this);
+        this.hillsBK.setAmbient(1, 1, 1, 1);
+        this.hillsBK.setDiffuse(0.9, 0.9, 0.9, 1);
+        this.hillsBK.setSpecular(0.4, 0.4, 0.4, 1);
+        this.hillsBK.setShininess(10.0);
+        this.hillsBK.loadTexture('images/sor_hills/hills_bk.JPG');
+        this.hillsBK.setTextureWrap('CLAMP_TO_EDGE', 'CLAMP_TO_EDGE');
+
+        this.hillsDN = new CGFappearance(this);
+        this.hillsDN.setAmbient(1, 1, 1, 1);
+        this.hillsDN.setDiffuse(0.9, 0.9, 0.9, 1);
+        this.hillsDN.setSpecular(0.4, 0.4, 0.4, 1);
+        this.hillsDN.setShininess(10.0);
+        this.hillsDN.loadTexture('images/sor_hills/hills_dn.JPG');
+        this.hillsDN.setTextureWrap('CLAMP_TO_EDGE', 'CLAMP_TO_EDGE');
+
+        this.hillsLF = new CGFappearance(this);
+        this.hillsLF.setAmbient(1, 1, 1, 1);
+        this.hillsLF.setDiffuse(0.9, 0.9, 0.9, 1);
+        this.hillsLF.setSpecular(0.4, 0.4, 0.4, 1);
+        this.hillsLF.setShininess(10.0);
+        this.hillsLF.loadTexture('images/sor_hills/hills_lf.JPG');
+        this.hillsLF.setTextureWrap('CLAMP_TO_EDGE', 'CLAMP_TO_EDGE');
+
+        this.hillsRT = new CGFappearance(this);
+        this.hillsRT.setAmbient(1, 1, 1, 1);
+        this.hillsRT.setDiffuse(0.9, 0.9, 0.9, 1);
+        this.hillsRT.setSpecular(0.4, 0.4, 0.4, 1);
+        this.hillsRT.setShininess(10.0);
+        this.hillsRT.loadTexture('images/sor_hills/hills_rt.JPG');
+        this.hillsRT.setTextureWrap('CLAMP_TO_EDGE', 'CLAMP_TO_EDGE');
+
+        this.hillsFT = new CGFappearance(this);
+        this.hillsFT.setAmbient(1, 1, 1, 1);
+        this.hillsFT.setDiffuse(0.9, 0.9, 0.9, 1);
+        this.hillsFT.setSpecular(0.4, 0.4, 0.4, 1);
+        this.hillsFT.setShininess(10.0);
+        this.hillsFT.loadTexture('images/sor_hills/hills_ft.JPG');
+        this.hillsFT.setTextureWrap('CLAMP_TO_EDGE', 'CLAMP_TO_EDGE');
+
+        this.hillsUP = new CGFappearance(this);
+        this.hillsUP.setAmbient(1, 1, 1, 1);
+        this.hillsUP.setDiffuse(0.9, 0.9, 0.9, 1);
+        this.hillsUP.setSpecular(0.4, 0.4, 0.4, 1);
+        this.hillsUP.setShininess(10.0);
+        this.hillsUP.loadTexture('images/sor_hills/hills_up.JPG');
+        this.hillsUP.setTextureWrap('CLAMP_TO_EDGE', 'CLAMP_TO_EDGE');
+
         this.enableTextures(true);
 
 
