@@ -22,7 +22,7 @@ class MyCubeMap extends CGFobject {
         this.scene.sky.apply();
 
         const pi = Math.PI;
-        this.scene.scale(50, 50, 50);
+        this.scene.scale(100, 50, 100);
         this.scene.translate(0, 0.5,0);
         this.scene.pushMatrix();
         this.scene.rotate(-pi / 2, 1, 0, 0);
