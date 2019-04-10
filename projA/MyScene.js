@@ -161,6 +161,22 @@ class MyScene extends CGFscene {
         this.hillsUP.loadTexture('images/sor_hills/hills_up.JPG');
         this.hillsUP.setTextureWrap('CLAMP_TO_EDGE', 'CLAMP_TO_EDGE');
 
+        this.roofTop = new CGFappearance(this);
+        this.roofTop.setAmbient(1, 1, 1, 1);
+        this.roofTop.setDiffuse(0.9, 0.9, 0.9, 1);
+        this.roofTop.setSpecular(0.4, 0.4, 0.4, 1);
+        this.roofTop.setShininess(10.0);
+        this.roofTop.loadTexture('images/rooftop1.jpg');
+        this.roofTop.setTextureWrap('CLAMP_TO_EDGE', 'CLAMP_TO_EDGE');
+
+        this.wall1 = new CGFappearance(this);
+        this.wall1.setAmbient(1, 1, 1, 1);
+        this.wall1.setDiffuse(0.9, 0.9, 0.9, 1);
+        this.wall1.setSpecular(0.4, 0.4, 0.4, 1);
+        this.wall1.setShininess(10.0);
+        this.wall1.loadTexture('images/wall1.jpg');
+        this.wall1.setTextureWrap('CLAMP_TO_EDGE', 'CLAMP_TO_EDGE');
+
         this.enableTextures(true);
 
 

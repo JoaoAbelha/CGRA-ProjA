@@ -41,6 +41,7 @@ class MyHouse extends CGFobject {
             this.scene.translate(houseWidht+1.4,houseHeight,0);
             this.scene.scale(houseLenght,houseHeight/1.5,houseLenght *1.3);
             this.scene.rotate(Math.PI/8,0,1,0);
+            this.scene.roofTop.apply();
             this.pyramidRoof.display();
             this.scene.popMatrix();
 
@@ -49,6 +50,7 @@ class MyHouse extends CGFobject {
         this.scene.pushMatrix();
         this.scene.scale(houseWidht, houseHeight, houseLenght);
         this.scene.translate(0 ,0.5, 0);
+        this.scene.wall1.apply();
         this.cube.display();
         this.scene.popMatrix();
 
@@ -68,6 +70,7 @@ class MyHouse extends CGFobject {
         this.scene.scale(houseWidht,houseHeight,houseLenght);
         this.scene.translate(0, 0.1, 0);
         this.scene.rotate(Math.PI/4, 0, 1, 0);
+        this.scene.roofTop.apply();
         this.pyramid.display();
         this.scene.popMatrix();
 
@@ -94,6 +97,7 @@ class MyHouse extends CGFobject {
         this.scene.pushMatrix();
         this.scene.translate(1,houseHeight*2 + 2.5,0);
         this.scene.scale(0.5,1,0.5);
+        this.scene.wall1.apply();
         this.cube.display();
         this.scene.popMatrix();
 
