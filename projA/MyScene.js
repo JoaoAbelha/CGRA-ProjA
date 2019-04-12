@@ -218,6 +218,22 @@ class MyScene extends CGFscene {
         this.whitewall.loadTexture('images/whitewall.jpg');
         this.whitewall.setTextureWrap('REPEAT', 'REPEAT');
 
+        this.door = new CGFappearance(this);
+        this.door.setAmbient(1, 1, 1, 1);
+        this.door.setDiffuse(0.9, 0.9, 0.9, 1);
+        this.door.setSpecular(0.4, 0.4, 0.4, 1);
+        this.door.setShininess(10.0);
+        this.door.loadTexture('images/door2.jpg');
+        this.door.setTextureWrap('REPEAT', 'REPEAT');
+
+        this.window = new CGFappearance(this);
+        this.window.setAmbient(1, 1, 1, 1);
+        this.window.setDiffuse(0.9, 0.9, 0.9, 1);
+        this.window.setSpecular(0.4, 0.4, 0.4, 1);
+        this.window.setShininess(10.0);
+        this.window.loadTexture('images/window.jpg');
+        this.window.setTextureWrap('REPEAT', 'REPEAT');
+
         this.enableTextures(true);
 
 

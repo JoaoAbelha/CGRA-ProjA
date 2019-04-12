@@ -7,6 +7,7 @@ class MyHouse extends CGFobject {
     constructor(scene) {
         super(scene);
         this.cube = new MyUnitCubeQuad(scene);
+        this.quad = new MyQuad(scene);
         this.pyramid = new MyPyramid(scene, 4, 1);
         this.prism = new MyPrism(scene, 8, 1);
         this.pyramidRoof = new MyPyramid(scene, 8, 1);
@@ -63,13 +64,48 @@ class MyHouse extends CGFobject {
         this.scene.translate(0, 0.5, 0);
         this.scene.whitewall.apply();
         this.cube.display();
-
-
-
-
-
         this.scene.popMatrix();
 
+        //porta
+        this.scene.pushMatrix()
+        this.scene.scale(1.5, 3, 1);
+        this.scene.translate(0, 0.5, houseLenght/2 + 0.001);
+        this.scene.door.apply();
+        this.quad.display();
+        this.scene.popMatrix();
+
+        //janelas
+        this.scene.pushMatrix()
+        this.scene.translate(0, 4.2, houseLenght/2 + 0.001);
+        this.scene.scale(2, 2, 1);
+        this.scene.window.apply();
+        this.quad.display();
+        this.scene.popMatrix();
+
+        this.scene.pushMatrix()
+        this.scene.translate(houseWidht/2 + 0.001, 4.2, 0);
+        this.scene.rotate(Math.PI / 2, 0, 1, 0);
+        this.scene.scale(2, 2, 1);
+        this.scene.window.apply();
+        this.quad.display();
+        this.scene.popMatrix();
+
+        this.scene.pushMatrix()
+        this.scene.translate(-houseWidht/2 - 0.001, 4.2, 0);
+        this.scene.rotate(-Math.PI / 2, 0, 1, 0);
+        this.scene.scale(2, 2, 1);
+        this.scene.window.apply();
+        this.quad.display();
+        this.scene.popMatrix();
+
+        this.scene.pushMatrix()
+        this.scene.translate(0, 4.2, -houseLenght/2 - 0.001);
+        this.scene.rotate(Math.PI, 0, 1, 0);
+        this.scene.scale(2, 2, 1);
+        this.scene.window.apply();
+        this.quad.display();
+        this.scene.popMatrix();
+        //telhado
         this.scene.pushMatrix();
         this.scene.translate(0, houseHeight * 2 + 0.3, 0);
         this.scene.scale(houseWidht, houseHeight, houseLenght);
