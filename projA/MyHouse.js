@@ -203,9 +203,59 @@ class MyHouse extends CGFobject {
         this.prismRoof.display();
         this.scene.popMatrix();
 
-        // the pool  
+        //escadas xD
         this.scene.pushMatrix();
-        this.scene.translate(10, 0, 10);
+        this.scene.translate(houseLenght * 2.1 + 3, 0, -1.7);
+        this.scene.scale(0.05, houseHeight * 1.5, 0.05);
+        this.scene.rotate(-Math.PI / 2, 1, 0, 0);
+        this.prism.display();
+        this.scene.popMatrix();
+
+        this.scene.pushMatrix();
+        this.scene.translate(houseLenght * 2.1 + 4, 0, -1.7);
+        this.scene.scale(0.05, houseHeight * 1.5, 0.05);
+        this.scene.rotate(-Math.PI / 2, 1, 0, 0);
+        this.prism.display();
+        this.scene.popMatrix();
+
+        for (let i = 0; i < 7; i++) {
+            this.scene.pushMatrix();
+            this.scene.translate(houseLenght * 2.1 + 4, 0.5 + i*0.5, -1.7);
+            this.scene.scale(1, 0.05, 0.05);
+            this.scene.rotate(-Math.PI / 2, 0, 1, 0);
+            this.prism.display();
+            this.scene.popMatrix();
+        }
+
+
+        // the pool  
+        this.scene.pool.apply();
+        this.scene.pushMatrix();
+        this.scene.translate(12, 0, 7.5);
+        this.scene.scale(10, 1, 1);
+        this.cube.display();
+        this.scene.popMatrix();
+
+        this.scene.pushMatrix();
+        this.scene.translate(12, 0, 15.5);
+        this.scene.scale(10, 1, 1);
+        this.cube.display();
+        this.scene.popMatrix();
+
+        this.scene.pushMatrix();
+        this.scene.translate(7.5, 0, 11);
+        this.scene.scale(1, 1, 8);
+        this.cube.display();
+        this.scene.popMatrix();
+
+        this.scene.pushMatrix();
+        this.scene.translate(17.5, 0, 11.5);
+        this.scene.scale(1, 1, 9);
+        this.cube.display();
+        this.scene.popMatrix();
+
+        this.scene.pushMatrix();
+        this.scene.translate(12, 0, 12);
         this.scene.scale(10, 10, 8);
         this.scene.rotate(-Math.PI / 2, 1, 0, 0);
         this.scene.water.apply();
