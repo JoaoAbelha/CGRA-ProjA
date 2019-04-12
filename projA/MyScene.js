@@ -169,13 +169,45 @@ class MyScene extends CGFscene {
         this.roofTop.loadTexture('images/rooftop1.jpg');
         this.roofTop.setTextureWrap('REPEAT', 'REPEAT');
 
-        this.wall1 = new CGFappearance(this);
-        this.wall1.setAmbient(1, 1, 1, 1);
-        this.wall1.setDiffuse(0.9, 0.9, 0.9, 1);
-        this.wall1.setSpecular(0.4, 0.4, 0.4, 1);
-        this.wall1.setShininess(10.0);
-        this.wall1.loadTexture('images/wall1.jpg');
-        this.wall1.setTextureWrap('REPEAT', 'REPEAT');
+        this.tatchedRoofTop = new CGFappearance(this);
+        this.tatchedRoofTop.setAmbient(1, 1, 1, 1);
+        this.tatchedRoofTop.setDiffuse(0.9, 0.9, 0.9, 1);
+        this.tatchedRoofTop.setSpecular(0.4, 0.4, 0.4, 1);
+        this.tatchedRoofTop.setShininess(10.0);
+        this.tatchedRoofTop.loadTexture('images/tatchedroof.jpg');
+        this.tatchedRoofTop.setTextureWrap('REPEAT', 'REPEAT');
+
+        this.woodenFloor = new CGFappearance(this);
+        this.woodenFloor.setAmbient(1, 1, 1, 1);
+        this.woodenFloor.setDiffuse(0.9, 0.9, 0.9, 1);
+        this.woodenFloor.setSpecular(0.4, 0.4, 0.4, 1);
+        this.woodenFloor.setShininess(10.0);
+        this.woodenFloor.loadTexture('images/woodenfloor.jpg');
+        this.woodenFloor.setTextureWrap('REPEAT', 'REPEAT');
+
+        this.balcony = new CGFappearance(this);
+        this.balcony.setAmbient(1, 1, 1, 1);
+        this.balcony.setDiffuse(0.9, 0.9, 0.9, 1);
+        this.balcony.setSpecular(0.4, 0.4, 0.4, 1);
+        this.balcony.setShininess(10.0);
+        this.balcony.loadTexture('images/balcony.jpg');
+        this.balcony.setTextureWrap('REPEAT', 'REPEAT');
+
+        this.brickwall = new CGFappearance(this);
+        this.brickwall.setAmbient(1, 1, 1, 1);
+        this.brickwall.setDiffuse(0.9, 0.9, 0.9, 1);
+        this.brickwall.setSpecular(0.4, 0.4, 0.4, 1);
+        this.brickwall.setShininess(10.0);
+        this.brickwall.loadTexture('images/wall2.jpg');
+        this.brickwall.setTextureWrap('REPEAT', 'REPEAT');
+
+        this.whitewall = new CGFappearance(this);
+        this.whitewall.setAmbient(1, 1, 1, 1);
+        this.whitewall.setDiffuse(0.9, 0.9, 0.9, 1);
+        this.whitewall.setSpecular(0.4, 0.4, 0.4, 1);
+        this.whitewall.setShininess(10.0);
+        this.whitewall.loadTexture('images/whitewall.jpg');
+        this.whitewall.setTextureWrap('REPEAT', 'REPEAT');
 
         this.enableTextures(true);
 

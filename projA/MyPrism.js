@@ -29,18 +29,16 @@ class MyPrism extends CGFobject
      for(let i=0; i < this.slices; i++){
 
       this.vertices.push(Math.cos(alphaAng *i),Math.sin(alphaAng*i),k* stack);
-      this.vertices.push(Math.cos((i+1)*alphaAng),Math.sin((i+1)*alphaAng),k*1/stack);
+      this.vertices.push(Math.cos((i+1)*alphaAng),Math.sin((i+1)*alphaAng),k*stack);
       
       this.normals.push(Math.cos(alphaAng*i+alphaAng/2),Math.sin(alphaAng*i+alphaAng/2),0);
       this.normals.push(Math.cos(alphaAng*i+alphaAng/2),Math.sin(alphaAng*i+alphaAng/2),0);
     
       this.texCoords.push(
-        i*1/this.slices, k*1/this.stacks,
-        (i+1)*1/this.slices, k*1/this.stacks,
-        i*1/this.slices, (k+1)*1/this.stacks,
-        (i+1)*1/this.slices, (k+1)*1/this.stacks
+        0, k*1/this.stacks,
+        1, k*1/this.stacks,
       );
-    
+      
     }
 
     
