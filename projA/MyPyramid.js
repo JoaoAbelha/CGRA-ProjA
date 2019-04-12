@@ -29,11 +29,11 @@ class MyPyramid extends CGFobject {
             var caa=Math.cos(ang+alphaAng);
 
             this.vertices.push(0,1,0);
-            this.texCoords.push(0.5, 0);
+            this.texCoords.push(0.5,0);
             this.vertices.push(ca, 0, -sa);
-            this.texCoords.push(ca, -sa);
+            this.texCoords.push(0, 1);
             this.vertices.push(caa, 0, -saa);
-            this.texCoords.push(caa, -saa);
+            this.texCoords.push(1, 1);
 
             // triangle normal computed by cross product of two edges
             var normal= [
@@ -61,6 +61,7 @@ class MyPyramid extends CGFobject {
 
             ang+=alphaAng;
         }
+        
 
         this.primitiveType = this.scene.gl.TRIANGLES;
         this.initGLBuffers();

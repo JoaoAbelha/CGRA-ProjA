@@ -25,7 +25,7 @@ class MyScene extends CGFscene {
         
         let slices = 6;
         let stack = 1;
-        this.prism = new MyPrism(this,slices,1);
+        this.prism = new MyPrism(this, 10 ,100);
         this.cylinder = new MyCylinder(this, 100, 100);
         this.cone = new MyCone(this,100, 100);
         this.tree = new MyTree(this, 100, 100,1.5,0.5,2,1);
@@ -167,7 +167,7 @@ class MyScene extends CGFscene {
         this.roofTop.setSpecular(0.4, 0.4, 0.4, 1);
         this.roofTop.setShininess(10.0);
         this.roofTop.loadTexture('images/rooftop1.jpg');
-        this.roofTop.setTextureWrap('CLAMP_TO_EDGE', 'CLAMP_TO_EDGE');
+        this.roofTop.setTextureWrap('REPEAT', 'REPEAT');
 
         this.wall1 = new CGFappearance(this);
         this.wall1.setAmbient(1, 1, 1, 1);
@@ -175,7 +175,7 @@ class MyScene extends CGFscene {
         this.wall1.setSpecular(0.4, 0.4, 0.4, 1);
         this.wall1.setShininess(10.0);
         this.wall1.loadTexture('images/wall1.jpg');
-        this.wall1.setTextureWrap('CLAMP_TO_EDGE', 'CLAMP_TO_EDGE');
+        this.wall1.setTextureWrap('REPEAT', 'REPEAT');
 
         this.enableTextures(true);
 
@@ -222,7 +222,7 @@ class MyScene extends CGFscene {
         
         //luz dia- sol
         this.lights[0].setPosition(0, 20, 0, 1);
-        this.lights[0].setDiffuse(1.0, 1.0, 1.0, 1.0);
+        this.lights[0].setDiffuse(0.945, 0.855, 0.643, 1.0);
         this.lights[0].setConstantAttenuation(1);
 		this.lights[0].setLinearAttenuation(0.0);
         this.lights[0].setQuadraticAttenuation(0.0);
@@ -231,10 +231,10 @@ class MyScene extends CGFscene {
         this.lights[0].update();
         //luz noite 
         this.lights[1].setPosition(0, 15, 0, 1);
-        this.lights[1].setDiffuse(1.0, 1.0, 1.0, 1.0);
+        this.lights[1].setDiffuse(0.133, 0.247, 0.349, 1.0);
         this.lights[1].setConstantAttenuation(1);
-		this.lights[1].setLinearAttenuation(0.0);
-		this.lights[1].setQuadraticAttenuation(0.05);
+		this.lights[1].setLinearAttenuation(0.05);
+		this.lights[1].setQuadraticAttenuation(0.0);
         this.lights[1].enable();
         this.lights[1].setVisible(true);
         this.lights[1].update();

@@ -18,6 +18,7 @@ class MyHouse extends CGFobject {
 
     };
     display() {
+        //ver melhor texcoords do prisma e aplica-las às paredes da casa
         let houseSide = 1;
         let roofWidth = 5;
         let roofLength = 5;
@@ -31,7 +32,7 @@ class MyHouse extends CGFobject {
         this.scene.scale(houseLenght,houseHeight,houseLenght);
         this.scene.rotate(Math.PI/8,0,1,0);
         this.scene.rotate(-Math.PI/2,1,0,0);
-
+        this.scene.wall1.apply();
         this.prism.display();
 
         
@@ -82,9 +83,6 @@ class MyHouse extends CGFobject {
       //this.prism.display();
 
         this.scene.translate(-houseLenght * 3.7,0,0);
-
-        
-
         this.prism.display();
         this.scene.translate(0,houseLenght * 3.7,0);
         this.prism.display();
@@ -97,7 +95,7 @@ class MyHouse extends CGFobject {
         this.scene.pushMatrix();
         this.scene.translate(1,houseHeight*2 + 2.5,0);
         this.scene.scale(0.5,1,0.5);
-        this.scene.wall1.apply();
+        //this.scene.wall1.apply();
         this.cube.display();
         this.scene.popMatrix();
 
@@ -109,6 +107,7 @@ class MyHouse extends CGFobject {
         this.scene.translate(houseLenght*2.6,0,0);
         this.scene.scale(5,houseHeight*1.5,3.9);
         this.scene.translate(0,0.5,0);
+        this.scene.wall1.apply();
         this.cube.display();
         this.scene.popMatrix();
 
@@ -116,6 +115,7 @@ class MyHouse extends CGFobject {
         this.scene.translate(houseLenght*2.6 +1 ,houseHeight*1.5-0.1,1);
         this.scene.scale(7,0.1,6);
         this.scene.translate(0,0.5,0);
+        this.scene.wall1.apply();
         this.cube.display();
         this.scene.popMatrix();
 
@@ -123,6 +123,7 @@ class MyHouse extends CGFobject {
         this.scene.translate(houseLenght*2.6 +1 ,houseHeight*1.5-0.1,-1.5);
         this.scene.scale(7,1.5,1);
         this.scene.translate(0,0.5,0);
+        this.scene.wall1.apply();
         this.cube.display();
         this.scene.popMatrix();
 
@@ -175,13 +176,11 @@ class MyHouse extends CGFobject {
         this.scene.translate(houseLenght*2.1 +3.5,5.7,-1.7);
         this.scene.scale(4, 1, 5.5);
         this.scene.rotate(Math.PI/2,0,0,1);
-
+        this.scene.roofTop.apply();
         this.prismRoof.display();
         this.scene.popMatrix();
 
-
-        // the pool
-        
+        // the pool  
         this.scene.pushMatrix();
         this.scene.translate(10,0,10);
         this.scene.scale(10,10,8);
@@ -189,6 +188,5 @@ class MyHouse extends CGFobject {
         this.scene.water.apply();
         this.pool.display();
         this.scene.popMatrix();
-  
     };
 }
