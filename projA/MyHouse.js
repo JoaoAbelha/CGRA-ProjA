@@ -10,16 +10,14 @@ class MyHouse extends CGFobject {
         this.quad = new MyQuad(scene);
         this.pyramid = new MyPyramid(scene, 4, 1);
         this.prism = new MyPrism(scene, 8, 1);
-        this.pyramidRoof = new MyPyramid(scene, 8, 1);
+        this.pyramidRoof = new MyPyramid(scene, 8, 1, true);
         this.pool = new MyQuad(scene);
-        this.prismRoof = new MyPrism(scene, 3, 1);
+        this.prismRoof = new MyPrism(scene, 3, 1, true,true);
         this.roofWidth = 5;
         this.roofLength = 5;
         this.houseWidth = 4.5;
         this.houseLength = 5;
         this.houseHeight = 2.5;
-
-
 
     };
 

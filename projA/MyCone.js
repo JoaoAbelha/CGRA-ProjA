@@ -1,13 +1,23 @@
 /**
 * MyCone
 * @constructor
+* @param scene Reference to MyScene object
+* @param slices Number of sides
+* @param stacks Number of normals throughout the edges
+* @param visible - Flag to manipulate the base visibility of the cone (default is false)
 */
 class MyCone extends CGFobject {
     constructor(scene, slices, stacks, visible) {
         super(scene);
         this.slices = slices;
         this.stacks = stacks;
-        this.base = visible;
+
+        if (visible == undefined) {
+            this.base = false;
+        }
+        else {
+            this.base = visible;
+        }
         this.initBuffers();
     }
 

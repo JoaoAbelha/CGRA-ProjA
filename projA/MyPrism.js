@@ -1,14 +1,27 @@
 /**
- * MyPrism
- * @param gl {WebGLRenderingContext}
- * @constructor
- */
-
+* MyPrism
+* @constructor
+* @param scene Reference to MyScene object
+* @param slices Number of sides
+* @param stacks Number of normals throughout the edges
+* @param visibleBase - Flag to manipulate the base visibility of the cone (default is false)
+* @param visibleTop - Flag to manipulate the higher base visibility of the cone (default is false)
+*/
 class MyPrism extends CGFobject {
-  constructor(scene, slices, stacks) {
+  constructor(scene, slices, stacks, visibleBase, visibleTop) {
     super(scene);
     this.slices = slices;
     this.stacks = stacks;
+    if (visibleBase == undefined) {
+      this.base = false;
+    } else {
+      this.base = true;
+    }
+    if (visibleTop == undefined) {
+      this.top= false;
+    } else {
+      this.top = true;
+    }
     this.initBuffers();
   }
   addBaseCoords() {
@@ -43,9 +56,6 @@ class MyPrism extends CGFobject {
   }
   
   initBuffers() {
-
-    this.base = false;
-    this.top = true;
 
     this.vertices = [];
     this.indices = [];
@@ -103,10 +113,6 @@ class MyPrism extends CGFobject {
     this.primitiveType = this.scene.gl.TRIANGLES;
     this.initGLBuffers();
   };
-
-
-
-
 
 
 };

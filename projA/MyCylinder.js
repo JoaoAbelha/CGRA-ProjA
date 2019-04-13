@@ -1,14 +1,27 @@
 /**
- * MyCylinder
- * @param gl {WebGLRenderingContext}
- * @constructor
- */
-
+* MyCylinder
+* @constructor
+* @param scene Reference to MyScene object
+* @param slices Number of sides
+* @param stacks Number of normals throughout the edges
+* @param visibleBase - Flag to manipulate the base visibility of the cone (default is false)
+* @param visibleTop - Flag to manipulate the higher base visibility of the cone (default is false)
+*/
 class MyCylinder extends CGFobject {
-  constructor(scene, slices, stacks) {
+  constructor(scene, slices, stacks, visibleBase, visibleTop) {
     super(scene);
     this.slices = slices;
     this.stacks = stacks;
+    if (visibleBase == undefined) {
+      this.base = false;
+    } else {
+      this.base = true;
+    }
+    if (visibleTop == undefined) {
+      this.top= false;
+    } else {
+      this.top = true;
+    }
     this.initBuffers();
   }
 
@@ -41,9 +54,6 @@ class MyCylinder extends CGFobject {
     this.indices = [];
     this.normals = [];
     this.texCoords = [];
-
-    this.base = true;
-    this.top = false;
 
     if (this.base || this.top) { //why top
       this.addBaseCoords();

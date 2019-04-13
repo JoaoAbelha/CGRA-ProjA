@@ -23,22 +23,23 @@ class MyScene extends CGFscene {
         this.axis = new CGFaxis(this);
         this.scaleFactor = 1;
         
-        let slices = 6;
-        let stack = 1;
+        let slices = 100;
+        let stack = 100;
         this.prism = new MyPrism(this, 10 ,100);
         this.cylinder = new MyCylinder(this, 100, 100);
         this.cone = new MyCone(this,100, 100, true);
-        this.tree = new MyTree(this, 100, 100,1.5,0.5,2,1);
+        this.tree = new MyTree(this, slices, stack,1.5,0.5,2,1, this.trunk,this.treetop);
         this.groupPatch = new MyTreeGroupPatch(this);
         this.rowPatch = new MyTreeRowPatch(this);
         this.house = new MyHouse(this);
         this.hill = new MyVoxelHill(this,8);
         this.image = new MyCubeMap(this);
         this.flashlight = new MyFlashlight(this);
+        this.pyramid = new MyPyramid(this,10,stack);
         
 
-        this.objects = [this.prism, this.cylinder, this.cone, this.tree, this.groupPatch, this.rowPatch, this.house, this.hill, this.image,this.flashlight] ;
-        this.objectIDs = {'Prism' : 0, 'Cylinder' : 1, 'Cone':2, 'Tree' : 3 , 'Groupesquare':4, 'RowPatch':5, 'House':6 ,"Hill":7, "Image": 8, "Flashlight":9};
+        this.objects = [this.prism, this.cylinder, this.cone, this.tree, this.groupPatch, this.rowPatch, this.house, this.hill, this.image,this.flashlight, this.pyramid] ;
+        this.objectIDs = {'Prism' : 0, 'Cylinder' : 1, 'Cone':2, 'Tree' : 3 , 'Groupesquare':4, 'RowPatch':5, 'House':6 ,"Hill":7, "Image": 8, "Flashlight":9, "pyramid":10};
 
         this.selectedObject = 0;
         this.displayNormals = false;
