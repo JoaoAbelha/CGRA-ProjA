@@ -36,7 +36,7 @@ class MyHouse extends CGFobject {
 
         this.scene.pushMatrix();
         this.scene.translate(this.houseWidth + distance, this.houseHeight, 0);
-        this.scene.scale(this.houseLength, this.houseHeight / 1.5, this.houseLength * 1.3);
+        this.scene.scale(this.houseLength, this.houseHeight / 1.3, this.houseLength * 1.3);
         this.scene.rotate(Math.PI / 8, 0, 1, 0);
         this.scene.roofTop.apply();
         this.pyramidRoof.display();
@@ -69,9 +69,52 @@ class MyHouse extends CGFobject {
             this.scene.popMatrix();
             ang+=HALF_PI;
         }
-
-       
     }
+
+    drawRoof() {
+        this.scene.pushMatrix();
+        this.scene.translate(0, this.houseHeight * 2 + 0.3, 0);
+        this.scene.scale(this.houseWidth, this.houseHeight, this.houseLength);
+        this.scene.translate(0, 0.1, 0);
+        this.scene.rotate(Math.PI / 4, 0, 1, 0);
+        this.scene.roofTop.apply();
+        this.pyramid.display();
+        this.scene.popMatrix();
+    }
+
+    drawColumns() {
+        this.scene.pushMatrix();
+        this.scene.translate(this.roofWidth / 2 + 0.3, 0, this.roofLength / 2 + 0.3);
+        this.scene.scale(0.3, this.houseHeight * 2 + 0.6, 0.3);
+        this.scene.rotate(-Math.PI / 2, 1, 0, 0);
+
+        if (this.smallHouse) {
+            this.prism.display();
+        }
+
+        this.scene.translate(-this.houseLength * 3.7, 0, 0);
+        this.prism.display();
+        this.scene.translate(0, this.houseLength * 3.7, 0);
+        this.prism.display();
+
+        this.scene.translate(this.houseLength * 3.7, 0, 0);
+
+        if (this.smallHouse) {
+             this.prism.display();
+        }
+
+        this.scene.popMatrix();
+    }
+
+    drawchimney() {
+        this.scene.pushMatrix();
+        this.scene.translate(1, this.houseHeight * 2 + 2.5, 0);
+        this.scene.scale(0.5, 1, 0.5);
+        this.scene.brickwall.apply();
+        this.cube.display();
+        this.scene.popMatrix();
+    }
+
 
     displaySquaredHouse() {
         this.scene.pushMatrix();
@@ -93,45 +136,15 @@ class MyHouse extends CGFobject {
 
         this.displayWindows();
 
-        
-        
-        // //telhado
-        // this.scene.pushMatrix();
-        // this.scene.translate(0, this.houseHeight * 2 + 0.3, 0);
-        // this.scene.scale(this.houseWidth, this.houseHeight, this.houseLength);
-        // this.scene.translate(0, 0.1, 0);
-        // this.scene.rotate(Math.PI / 4, 0, 1, 0);
-        // this.scene.roofTop.apply();
-        // this.pyramid.display();
-        // this.scene.popMatrix();
+        this.drawRoof();
 
-        // //colunas
-        // this.scene.pushMatrix();
-        // this.scene.translate(this.roofWidth / 2 + 0.3, 0, this.roofLength / 2 + 0.3);
-        // this.scene.scale(0.3, this.houseHeight * 2 + 0.6, 0.3);
-        // this.scene.rotate(-Math.PI / 2, 1, 0, 0);
-        // //this.prism.display();
+        this.drawColumns();
 
-        // this.scene.translate(-this.houseLength * 3.7, 0, 0);
-        // this.prism.display();
-        // this.scene.translate(0, this.houseLength * 3.7, 0);
-        // this.prism.display();
-
-        // this.scene.translate(this.houseLength * 3.7, 0, 0);
-        // //  this.prism.display();
-
-        // this.scene.popMatrix();
-
-        // //chaminé
-        // this.scene.pushMatrix();
-        // this.scene.translate(1, this.houseHeight * 2 + 2.5, 0);
-        // this.scene.scale(0.5, 1, 0.5);
-        // this.scene.brickwall.apply();
-        // this.cube.display();
-        // this.scene.popMatrix();
+        this.drawchimney();
+ 
     }
 
-    displayBalcony() {
+    displayWoodenFloor() {
         this.scene.pushMatrix();
         this.scene.translate(this.houseLength * 2.6 + 1, this.houseHeight * 1.5 - 0.1, 1);
         this.scene.scale(7, 0.1, 6);
@@ -139,16 +152,19 @@ class MyHouse extends CGFobject {
         this.scene.woodenFloor.apply();
         this.cube.display();
         this.scene.popMatrix();
+    }
 
-        //varanda frente
-        this.scene.pushMatrix();
-        this.scene.translate(this.houseLength * 2.6 + 1, this.houseHeight * 1.5 + 0.25, +4);
-        this.scene.scale(7, 0.7, 0.1);
-        this.scene.balcony.apply();
-        this.cube.display();
-        this.scene.popMatrix();
+    displayRailing() {
 
-        //varandas laterais
+         // front railing
+         this.scene.pushMatrix();
+         this.scene.translate(this.houseLength * 2.6 + 1, this.houseHeight * 1.5 + 0.25, +4);
+         this.scene.scale(7, 0.7, 0.1);
+         this.scene.balcony.apply();
+         this.cube.display();
+         this.scene.popMatrix();
+
+         // side railing
         this.scene.pushMatrix();
         this.scene.translate(this.houseLength * 2.1 + 0.05, this.houseHeight * 1.5 + 0.25, 1);
         this.scene.scale(0.1, 0.7, 6);
@@ -162,69 +178,63 @@ class MyHouse extends CGFobject {
         this.scene.balcony.apply();
         this.cube.display();
         this.scene.popMatrix();
+    }
 
-        //colunas
-        this.scene.pushMatrix();
-        this.scene.translate(this.houseLength * 2.1 + 0.3, 0, 3.5);
-        this.scene.scale(0.3, this.houseHeight * 1.5 * 1.4, 0.3);
-        this.scene.rotate(-Math.PI / 2, 1, 0, 0);
-        this.prism.display();
-        this.scene.popMatrix();
+    displayBalconyColumns() { // texturess ???????????????????????????
+         const ang = -Math.PI/2;
+         const translations = [this.houseLength * 2.1 + 0.3, 0, 3.5,  
+                         this.houseLength * 2.1 + 0.5 + 6, 0, 3.5,
+                         this.houseLength * 2.1 + 0.3 + 6, 0, -1.7,
+                         this.houseLength * 2.1 + 0.3, 0, -1.7
+                        ];
 
-        this.scene.pushMatrix();
-        this.scene.translate(this.houseLength * 2.1 + 0.5 + 6, 0, 3.5);
-        this.scene.scale(0.3, this.houseHeight * 1.5 * 1.4, 0.3);
-        this.scene.rotate(-Math.PI / 2, 1, 0, 0);
-        this.prism.display();
-        this.scene.popMatrix();
+         for(let col = 0; col < 4 ; col ++) {
+             this.scene.pushMatrix();
+             this.scene.translate(translations[3*col], translations[3*col+1], translations[3*col+2]);
+             this.scene.scale(0.3, this.houseHeight * 1.5 * 1.4, 0.3);
+             this.scene.rotate(ang,1,0,0);
+             this.prism.display();
+             this.scene.popMatrix();
+         }
+    }
 
+    displayBalcony() {
+        this.displayWoodenFloor();
+        this.displayRailing();
+        this.displayBalconyColumns();
 
-        this.scene.pushMatrix();
-        this.scene.translate(this.houseLength * 2.1 + 0.3 + 6, 0, -1.7);
-        this.scene.scale(0.3, this.houseHeight * 1.5, 0.3);
-        this.scene.rotate(-Math.PI / 2, 1, 0, 0);
-        this.prism.display();
-        this.scene.popMatrix();
+        // //roof prism
+        // this.scene.pushMatrix();
+        // this.scene.translate(this.houseLength * 2.1 + 3.5, 5.7, -1.7);
+        // this.scene.scale(4, 1, 5.5);
+        // this.scene.rotate(Math.PI / 2, 0, 0, 1);
+        // this.scene.tatchedRoofTop.apply();
+        // this.prismRoof.display();
+        // this.scene.popMatrix();
 
-        this.scene.pushMatrix();
-        this.scene.translate(this.houseLength * 2.1 + 0.3, 0, -1.7);
-        this.scene.scale(0.3, this.houseHeight * 1.5, 0.3);
-        this.scene.rotate(-Math.PI / 2, 1, 0, 0);
-        this.prism.display();
-        this.scene.popMatrix();
+        // //escadas xD
+        // this.scene.pushMatrix();
+        // this.scene.translate(this.houseLength * 2.1 + 3, 0, -1.7);
+        // this.scene.scale(0.05, this.houseHeight * 1.5, 0.05);
+        // this.scene.rotate(-Math.PI / 2, 1, 0, 0);
+        // this.prism.display();
+        // this.scene.popMatrix();
 
-        //roof prism
-        this.scene.pushMatrix();
-        this.scene.translate(this.houseLength * 2.1 + 3.5, 5.7, -1.7);
-        this.scene.scale(4, 1, 5.5);
-        this.scene.rotate(Math.PI / 2, 0, 0, 1);
-        this.scene.tatchedRoofTop.apply();
-        this.prismRoof.display();
-        this.scene.popMatrix();
+        // this.scene.pushMatrix();
+        // this.scene.translate(this.houseLength * 2.1 + 4, 0, -1.7);
+        // this.scene.scale(0.05, this.houseHeight * 1.5, 0.05);
+        // this.scene.rotate(-Math.PI / 2, 1, 0, 0);
+        // this.prism.display();
+        // this.scene.popMatrix();
 
-        //escadas xD
-        this.scene.pushMatrix();
-        this.scene.translate(this.houseLength * 2.1 + 3, 0, -1.7);
-        this.scene.scale(0.05, this.houseHeight * 1.5, 0.05);
-        this.scene.rotate(-Math.PI / 2, 1, 0, 0);
-        this.prism.display();
-        this.scene.popMatrix();
-
-        this.scene.pushMatrix();
-        this.scene.translate(this.houseLength * 2.1 + 4, 0, -1.7);
-        this.scene.scale(0.05, this.houseHeight * 1.5, 0.05);
-        this.scene.rotate(-Math.PI / 2, 1, 0, 0);
-        this.prism.display();
-        this.scene.popMatrix();
-
-        for (let i = 0; i < 7; i++) {
-            this.scene.pushMatrix();
-            this.scene.translate(this.houseLength * 2.1 + 4, 0.5 + i * 0.5, -1.7);
-            this.scene.scale(1, 0.05, 0.05);
-            this.scene.rotate(-Math.PI / 2, 0, 1, 0);
-            this.prism.display();
-            this.scene.popMatrix();
-        }
+        // for (let i = 0; i < 7; i++) {
+        //     this.scene.pushMatrix();
+        //     this.scene.translate(this.houseLength * 2.1 + 4, 0.5 + i * 0.5, -1.7);
+        //     this.scene.scale(1, 0.05, 0.05);
+        //     this.scene.rotate(-Math.PI / 2, 0, 1, 0);
+        //     this.prism.display();
+        //     this.scene.popMatrix();
+        // }
     }
 
     displayPool() {
@@ -264,11 +274,18 @@ class MyHouse extends CGFobject {
     }
 
     display() {
+        this.smallHouse = false; // se true desenhar so a squared house
+        this.pool = true; // house has a pool
+        if (!this.smallHouse) {
+            //this.displayPrismalHouse();
+            this.displayBalcony();
+        }
 
-        //this.displayPrismalHouse();
-        this.displaySquaredHouse();
-        // this.displayBalcony();
+        //this.displaySquaredHouse();
+      
+        if(this.pool) {
         // this.displayPool();
+        }
 
     };
 }
