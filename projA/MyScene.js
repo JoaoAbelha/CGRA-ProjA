@@ -315,7 +315,7 @@ class MyScene extends CGFscene {
         this.lights[1].setVisible(true);
         this.lights[1].update();
         //another luz noite
-        this.lights[2].setPosition(0, 3, 0, 1);
+        this.lights[2].setPosition(0, 0.5, 0, 1);
         this.lights[2].setDiffuse(1.0, 1.0, 1.0, 1.0);
         this.lights[2].setConstantAttenuation(1);
 		this.lights[2].setLinearAttenuation(0.0);
