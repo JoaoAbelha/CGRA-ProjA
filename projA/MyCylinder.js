@@ -11,16 +11,44 @@ class MyCylinder extends CGFobject {
     this.stacks = stacks;
     this.initBuffers();
   }
+
+  addBaseCoords() {
+    this.vertices.push(0, 0, 0);
+    this.texCoords.push(0.5, 0.5);
+    this.normals.push(0, 0 ,-1);
+  }
+
+  addTopCoords() {
+    this.vertices.push(0, 0, 1);  
+    this.texCoords.push(0.5, 0.5);
+    this.normals.push(0, 0 , 1);
+  }
+
+  drawBase() {
+    for (let i = 1; i < this.slices * 2; i++) {
+      this.indices.push(i + 1, i, 0);
+    }
+  }
+
+  drawTop(nPontos) {
+   for (let i = 0; i <= this.slices + 1; i++) {
+       this.indices.push(nPontos + this.slices - i, nPontos + this.slices + 1 - i, nPontos + this.slices + 1);
+    }
+ }
+
   initBuffers() {
     this.vertices = [];
     this.indices = [];
     this.normals = [];
     this.texCoords = [];
 
+    this.base = true;
+    this.top = false;
 
-    this.vertices.push(0, 0, 0);
-    this.texCoords.push(0.5, 0.5);
-    this.normals.push(0, 0, -1);
+    if (this.base || this.top) { //why top
+      this.addBaseCoords();
+    }
+
     var ang = 2 * Math.PI / this.slices;
     for (let j = 0; j <= this.stacks; j++) {
       for (let i = 0; i < this.slices; i++) {
@@ -34,19 +62,10 @@ class MyCylinder extends CGFobject {
         //this.normals.push(Math.cos(ang*(i+1)),Math.sin(ang*(i+1)),0);
       }
     }
-    this.vertices.push(0, 0, 1);
-    this.texCoords.push(0.5, 0.5);
-    this.normals.push(0, 0, 1);
+
+    this.addTopCoords();
 
     var nPontos = this.slices * this.stacks;
-
-    for (let i = 0; i <= this.slices + 1; i++) {
-       this.indices.push(nPontos + this.slices - i, nPontos + this.slices + 1 - i, nPontos + this.slices + 1);
-    }
-
-    for (let i = 1; i <= this.slices; i++) {
-      this.indices.push(i + 1, i, 0);
-    }
 
     for (let i = 1; i < nPontos; i++) {
       if ((i + 1) % this.slices == 0) {
@@ -57,6 +76,17 @@ class MyCylinder extends CGFobject {
         this.indices.push(i, i + 1, i + 1 + this.slices);
         this.indices.push(i, i + 1 + this.slices, i + this.slices);
       }
+    }
+
+    if (this.base && !this.top) {
+      this.drawBase();
+    } 
+    else if (!this.base && this.top) {
+      this.drawTop(nPontos);
+    }
+    else if (this.base && this.top) {
+      this.drawBase();
+      this.drawTop(nPontos);
     }
 
 
