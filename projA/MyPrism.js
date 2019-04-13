@@ -28,7 +28,7 @@ class MyPrism extends CGFobject
     for(let k =0; k <= this.stacks; k++){
      for(let i=0; i < this.slices; i++){
 
-      this.vertices.push(Math.cos(alphaAng *i),Math.sin(alphaAng*i),k* stack);
+      this.vertices.push(Math.cos(alphaAng *i),Math.sin(alphaAng*i),k*stack);
       this.vertices.push(Math.cos((i+1)*alphaAng),Math.sin((i+1)*alphaAng),k*stack);
       
       this.normals.push(Math.cos(alphaAng*i+alphaAng/2),Math.sin(alphaAng*i+alphaAng/2),0);
