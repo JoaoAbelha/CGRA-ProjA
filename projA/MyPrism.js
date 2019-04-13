@@ -49,7 +49,6 @@ class MyPrism extends CGFobject {
 
     var indexNumber = 2 * this.slices * this.stacks;
 
-    //this.indices.push(indexNumber + this.slices * 2 + 1, 0, 1);
     for (let i = 1; i < this.slices * 2; i++) {
        this.indices.push(indexNumber + this.slices * 2 - i, indexNumber + this.slices * 2 + 1 - i, indexNumber + this.slices * 2 + 1);
     }

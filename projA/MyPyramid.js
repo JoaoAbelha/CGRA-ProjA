@@ -61,7 +61,6 @@ class MyPyramid extends CGFobject {
 
             ang+=alphaAng;
         }
-        
 
         this.primitiveType = this.scene.gl.TRIANGLES;
         this.initGLBuffers();
