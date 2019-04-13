@@ -7,7 +7,7 @@
 
     constructor (scene, slides, stack, trunkHeight, trunkRadius, treeTopHeight, treeTopRadius) {
         super(scene);
-        this.cone = new MyCone(this.scene,slides,stack);
+        this.cone = new MyCone(this.scene,slides,stack, true);
         this.trunk = new MyCylinder(this.scene,slides,stack);
         this.trunkRadius = trunkRadius;
         this.trunkHeight = trunkHeight;

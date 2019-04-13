@@ -3,10 +3,11 @@
 * @constructor
 */
 class MyCone extends CGFobject {
-    constructor(scene, slices, stacks) {
+    constructor(scene, slices, stacks, visible) {
         super(scene);
         this.slices = slices;
         this.stacks = stacks;
+        this.base = visible;
         this.initBuffers();
     }
 
@@ -25,7 +26,6 @@ class MyCone extends CGFobject {
         this.indices = [];
         this.normals = [];
         this.texCoords = [];
-        this.base = true;
 
         var ang = 0;
         var alphaAng = 2*Math.PI/this.slices;
@@ -45,7 +45,7 @@ class MyCone extends CGFobject {
         if(this.base) {
             this.addBase();
         }
-        
+
         this.primitiveType = this.scene.gl.TRIANGLES;
         this.initGLBuffers();
     }
