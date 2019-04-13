@@ -13,16 +13,17 @@ class MyVoxelHill extends CGFobject {
 
     // possivelmente melhorar ciclo
     display() {
-        let side = 1;
         this.scene.pushMatrix();
         this.scene.translate(0, 0.5, 0);
-        this.cube.displayHillCube();
+
+        this.cube.onHill = true;
 
         for (let i = 0; i < this.niveis; i++) {
             this.draw(this.niveis - i, i);
         }
 
         this.scene.popMatrix();
+        this.cube.onHill = false;
     };
 
     draw(lado, nivel) {
@@ -32,22 +33,22 @@ class MyVoxelHill extends CGFobject {
                 if (i == lado - 1 || j == lado - 1) {
                     this.scene.pushMatrix();
                     this.scene.translate(i, nivel, j);
-                    this.cube.displayHillCube();
+                    this.cube.display();
                     this.scene.popMatrix();
 
                     this.scene.pushMatrix();
                     this.scene.translate(-i, nivel, j);
-                    this.cube.displayHillCube();
+                    this.cube.display();
                     this.scene.popMatrix();
 
                     this.scene.pushMatrix();
                     this.scene.translate(i, nivel, -j);
-                    this.cube.displayHillCube();
+                    this.cube.display();
                     this.scene.popMatrix();
 
                     this.scene.pushMatrix();
                     this.scene.translate(-i, nivel, -j);
-                    this.cube.displayHillCube();
+                    this.cube.display();
                     this.scene.popMatrix();
                 }
             }
