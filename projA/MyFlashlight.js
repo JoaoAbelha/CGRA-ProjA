@@ -23,6 +23,7 @@ class MyFlashlight extends CGFobject {
         this.scene.pushMatrix();
         this.scene.scale(base,height,base);  
         this.scene.translate(0,3*(height+baseHeight),0);
+        this.scene.toplight.apply();
         this.top.display();
         this.scene.popMatrix();
 

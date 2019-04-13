@@ -243,6 +243,14 @@ class MyScene extends CGFscene {
         this.sidelight.loadTexture('images/sideFlash.jpg');
         this.sidelight.setTextureWrap('REPEAT', 'REPEAT');
 
+        this.toplight = new CGFappearance(this);
+        this.toplight.setAmbient(1, 1, 1, 1);
+        this.toplight.setDiffuse(0.9, 0.9, 0.9, 1);
+        this.toplight.setSpecular(0.4, 0.4, 0.4, 1);
+        this.toplight.setShininess(10.0);
+        this.toplight.loadTexture('images/topflashlight.jpg');
+        this.toplight.setTextureWrap('REPEAT', 'REPEAT');
+
         this.enableTextures(true);
 
 
