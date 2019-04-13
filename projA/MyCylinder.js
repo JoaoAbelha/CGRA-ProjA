@@ -63,7 +63,9 @@ class MyCylinder extends CGFobject {
       }
     }
 
-    this.addTopCoords();
+    if (this.top) {
+      this.addTopCoords();
+    }
 
     var nPontos = this.slices * this.stacks;
 
@@ -88,7 +90,6 @@ class MyCylinder extends CGFobject {
       this.drawBase();
       this.drawTop(nPontos);
     }
-
 
     this.primitiveType = this.scene.gl.TRIANGLES;
     this.initGLBuffers();
