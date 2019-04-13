@@ -198,47 +198,55 @@ class MyHouse extends CGFobject {
          }
     }
 
+    displayRoofPrism() { // FALTA AINDA TERMINAR ESTEEEEEE
+        this.scene.pushMatrix();
+        this.scene.translate(this.houseLength * 2.1 + 3.5, 5.7, -1.7);
+        this.scene.scale(4, 1, 5.5);
+        this.scene.rotate(Math.PI / 2, 0, 0, 1);
+        this.scene.tatchedRoofTop.apply();
+        this.prismRoof.display();
+        this.scene.popMatrix();
+    }
+
+
+    displayLadder() {
+
+        // vertical bar
+        this.scene.pushMatrix();
+        this.scene.translate(this.houseLength * 2.1 + 3, 0, -1.7);
+        this.scene.scale(0.05, this.houseHeight * 1.5, 0.05);
+        this.scene.rotate(-Math.PI / 2, 1, 0, 0);
+        this.prism.display();
+        this.scene.popMatrix();
+
+        //another vertical bar
+        this.scene.pushMatrix();
+        this.scene.translate(this.houseLength * 2.1 + 4, 0, -1.7);
+        this.scene.scale(0.05, this.houseHeight * 1.5, 0.05);
+        this.scene.rotate(-Math.PI / 2, 1, 0, 0);
+        this.prism.display();
+        this.scene.popMatrix();
+
+        //horizontal bars for steps
+        for (let i = 0; i < 7; i++) {
+            this.scene.pushMatrix();
+            this.scene.translate(this.houseLength * 2.1 + 4, 0.5 + i * 0.5, -1.7);
+            this.scene.scale(1, 0.05, 0.05);
+            this.scene.rotate(-Math.PI / 2, 0, 1, 0);
+            this.prism.display();
+            this.scene.popMatrix();
+        }
+    }
+
     displayBalcony() {
         this.displayWoodenFloor();
         this.displayRailing();
         this.displayBalconyColumns();
-
-        // //roof prism
-        // this.scene.pushMatrix();
-        // this.scene.translate(this.houseLength * 2.1 + 3.5, 5.7, -1.7);
-        // this.scene.scale(4, 1, 5.5);
-        // this.scene.rotate(Math.PI / 2, 0, 0, 1);
-        // this.scene.tatchedRoofTop.apply();
-        // this.prismRoof.display();
-        // this.scene.popMatrix();
-
-        // //escadas xD
-        // this.scene.pushMatrix();
-        // this.scene.translate(this.houseLength * 2.1 + 3, 0, -1.7);
-        // this.scene.scale(0.05, this.houseHeight * 1.5, 0.05);
-        // this.scene.rotate(-Math.PI / 2, 1, 0, 0);
-        // this.prism.display();
-        // this.scene.popMatrix();
-
-        // this.scene.pushMatrix();
-        // this.scene.translate(this.houseLength * 2.1 + 4, 0, -1.7);
-        // this.scene.scale(0.05, this.houseHeight * 1.5, 0.05);
-        // this.scene.rotate(-Math.PI / 2, 1, 0, 0);
-        // this.prism.display();
-        // this.scene.popMatrix();
-
-        // for (let i = 0; i < 7; i++) {
-        //     this.scene.pushMatrix();
-        //     this.scene.translate(this.houseLength * 2.1 + 4, 0.5 + i * 0.5, -1.7);
-        //     this.scene.scale(1, 0.05, 0.05);
-        //     this.scene.rotate(-Math.PI / 2, 0, 1, 0);
-        //     this.prism.display();
-        //     this.scene.popMatrix();
-        // }
+        this.displayRoofPrism();
+        this.displayLadder();
     }
 
-    displayPool() {
-        // the pool  
+    displaySwimmingPool() {
         this.scene.pool.apply();
         this.scene.pushMatrix();
         this.scene.translate(12, 0, 7.5);
@@ -275,16 +283,15 @@ class MyHouse extends CGFobject {
 
     display() {
         this.smallHouse = false; // se true desenhar so a squared house
-        this.pool = true; // house has a pool
+        this.displayPool = true; // house has a pool
         if (!this.smallHouse) {
-            //this.displayPrismalHouse();
+            this.displayPrismalHouse();
             this.displayBalcony();
         }
+        this.displaySquaredHouse();
 
-        //this.displaySquaredHouse();
-      
-        if(this.pool) {
-        // this.displayPool();
+        if (this.displayPool) {
+            this.displaySwimmingPool();
         }
 
     };
