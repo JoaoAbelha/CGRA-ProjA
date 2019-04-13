@@ -15,12 +15,12 @@ class MyPrism extends CGFobject {
     if (visibleBase == undefined) {
       this.base = false;
     } else {
-      this.base = true;
+      this.base = visibleBase;
     }
     if (visibleTop == undefined) {
       this.top= false;
     } else {
-      this.top = true;
+      this.top = visibleTop;
     }
     this.initBuffers();
   }

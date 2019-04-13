@@ -7,7 +7,7 @@ class MyFlashlight extends CGFobject {
 
     constructor(scene) {
         super(scene);
-        this.lateralSide = new MyPrism(scene,6,12);
+        this.lateralSide = new MyPrism(scene,6,12,false,true);
         this.top = new MyPyramid(scene, 6 ,12);
 
      
