@@ -34,10 +34,11 @@ class MyScene extends CGFscene {
         this.house = new MyHouse(this);
         this.hill = new MyVoxelHill(this,8);
         this.image = new MyCubeMap(this);
+        this.flashlight = new MyFlashlight(this);
         
 
-        this.objects = [this.prism, this.cylinder, this.cone, this.tree, this.groupPatch, this.rowPatch, this.house, this.hill, this.image] ;
-        this.objectIDs = {'Prism' : 0, 'Cylinder' : 1, 'Cone':2, 'Tree' : 3 , 'Groupesquare':4, 'RowPatch':5, 'House':6 ,"Hill":7, "Image": 8};
+        this.objects = [this.prism, this.cylinder, this.cone, this.tree, this.groupPatch, this.rowPatch, this.house, this.hill, this.image,this.flashlight] ;
+        this.objectIDs = {'Prism' : 0, 'Cylinder' : 1, 'Cone':2, 'Tree' : 3 , 'Groupesquare':4, 'RowPatch':5, 'House':6 ,"Hill":7, "Image": 8, "Flashlight":9};
 
         this.selectedObject = 0;
         this.displayNormals = false;
@@ -234,11 +235,21 @@ class MyScene extends CGFscene {
         this.window.loadTexture('images/window.jpg');
         this.window.setTextureWrap('REPEAT', 'REPEAT');
 
+        this.sidelight = new CGFappearance(this);
+        this.sidelight.setAmbient(1, 1, 1, 1);
+        this.sidelight.setDiffuse(0.9, 0.9, 0.9, 1);
+        this.sidelight.setSpecular(0.4, 0.4, 0.4, 1);
+        this.sidelight.setShininess(10.0);
+        this.sidelight.loadTexture('images/sideFlash.jpg');
+        this.sidelight.setTextureWrap('REPEAT', 'REPEAT');
+
         this.enableTextures(true);
 
 
         //Objects connected to MyInterface
     }
+
+
     updateCustomMaterial() {
         var rgba;
 

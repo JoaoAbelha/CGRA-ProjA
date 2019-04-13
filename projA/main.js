@@ -18,6 +18,7 @@ serialInclude(['../lib/CGF.js',
                  'MyVoxelHill.js',
                  'MyCubeMap.js',
                  'MyQuadMap.js',
+                 'MyFlashlight.js',
 
 main=function()
 {
