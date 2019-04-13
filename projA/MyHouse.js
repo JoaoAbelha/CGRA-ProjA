@@ -144,7 +144,7 @@ class MyHouse extends CGFobject {
 
         //varanda frente
         this.scene.pushMatrix();
-        this.scene.translate(this.houseLength * 2.6 + 1, this.houseHeight * 1.5 + 0.25, 4);
+        this.scene.translate(this.houseLength * 2.6 + 1, this.houseHeight * 1.5 + 0.25, +4);
         this.scene.scale(7, 0.7, 0.1);
         this.scene.balcony.apply();
         this.cube.display();
@@ -204,7 +204,7 @@ class MyHouse extends CGFobject {
         this.prismRoof.display();
         this.scene.popMatrix();
 
-        //escadas
+        //escadas xD
         this.scene.pushMatrix();
         this.scene.translate(this.houseLength * 2.1 + 3, 0, -1.7);
         this.scene.scale(0.05, this.houseHeight * 1.5, 0.05);
@@ -230,6 +230,7 @@ class MyHouse extends CGFobject {
     }
 
     displayPool() {
+        // the pool  
         this.scene.pool.apply();
         this.scene.pushMatrix();
         this.scene.translate(12, 0, 7.5);

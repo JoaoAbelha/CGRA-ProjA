@@ -67,6 +67,7 @@ class MyUnitCubeQuad extends CGFobject {
         this.scene.top.apply();
         this.scene.rotate(-pi / 2, 1, 0, 0);
         this.scene.translate(0, 0, 0.5);
+        this.scene.gl.texParameteri(this.scene.gl.TEXTURE_2D, this.scene.gl.TEXTURE_MAG_FILTER, this.scene.gl.NEAREST);
         this.top.display();
         this.scene.popMatrix();
         this.scene.pushMatrix();
@@ -74,6 +75,7 @@ class MyUnitCubeQuad extends CGFobject {
         this.scene.bottom.apply();
         this.scene.rotate(pi / 2, 1, 0, 0);
         this.scene.translate(0, 0, 0.5);
+        this.scene.gl.texParameteri(this.scene.gl.TEXTURE_2D, this.scene.gl.TEXTURE_MAG_FILTER, this.scene.gl.NEAREST);
         this.bottom.display();
         this.scene.popMatrix();
         this.scene.pushMatrix();
@@ -81,23 +83,27 @@ class MyUnitCubeQuad extends CGFobject {
         this.scene.side.apply();
         this.scene.rotate(pi / 2, 0, 1, 0);
         this.scene.translate(0, 0, 0.5);
+        this.scene.gl.texParameteri(this.scene.gl.TEXTURE_2D, this.scene.gl.TEXTURE_MAG_FILTER, this.scene.gl.NEAREST);
         this.side.display();
         this.scene.popMatrix();
         this.scene.pushMatrix();
 
         this.scene.rotate(pi, 0, 1, 0);
         this.scene.translate(0, 0, 0.5);
+        this.scene.gl.texParameteri(this.scene.gl.TEXTURE_2D, this.scene.gl.TEXTURE_MAG_FILTER, this.scene.gl.NEAREST);
         this.side.display();
         this.scene.popMatrix();
         this.scene.pushMatrix();
 
         this.scene.rotate(3 * pi / 2, 0, 1, 0);
         this.scene.translate(0, 0, 0.5);
+        this.scene.gl.texParameteri(this.scene.gl.TEXTURE_2D, this.scene.gl.TEXTURE_MAG_FILTER, this.scene.gl.NEAREST);
         this.side.display();
         this.scene.popMatrix();
         this.scene.pushMatrix();
 
         this.scene.translate(0, 0, 0.5);
+        this.scene.gl.texParameteri(this.scene.gl.TEXTURE_2D, this.scene.gl.TEXTURE_MAG_FILTER, this.scene.gl.NEAREST);
         this.side.display();
         this.scene.popMatrix();
     }
