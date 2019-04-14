@@ -4,9 +4,9 @@
  */
 
 class MyTreeGroupPatch extends CGFobject {
-    constructor(scene) {
+    constructor(scene,  trunkTexture, treeTopTexture) {
         super(scene);
-        this.tree = new MyTree(scene, 100, 100,1.5,0.5,2,1);
+        this.tree = new MyTree(scene, 100, 100,1.5,0.5,2,1, trunkTexture, treeTopTexture);
 
         this.displacementsOnX = [];
         for(let i = 0; i < 9; i++) {

@@ -26,8 +26,8 @@
         this.scene.pushMatrix();
         this.scene.translate(0,this.trunkHeight,0);
         this.scene.scale(this.treeTopRadius, this.treeTopHeight, this.treeTopRadius);
-        //this.treeTopTexture.apply();
-        this.scene.treetop.apply();
+        this.treeTopTexture.apply();
+        //this.scene.treetop.apply();
         this.cone.display();
         this.scene.popMatrix();
         
@@ -35,8 +35,8 @@
         this.scene.translate(0, this.trunkHeight, 0);
         this.scene.scale(this.trunkRadius,this.trunkHeight , this.trunkRadius);
         this.scene.rotate(pi/2 ,1,0,0);
-        //this.trunkTexture.apply();
-        this.scene.trunk.apply();
+        this.trunkTexture.apply();
+        //this.scene.trunk.apply();
         this.trunk.display();
         this.scene.popMatrix();
     };
