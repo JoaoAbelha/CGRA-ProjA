@@ -56,7 +56,7 @@ class MyHouse extends CGFobject {
         let ang = 0;
         const HALF_PI = Math.PI / 2;
 
-        //draw four windows
+        //display four windows
         for(let nrWindow = 0; nrWindow < 4; nrWindow++) {
             this.scene.pushMatrix();
             this.scene.rotate(ang,0,1,0);
@@ -69,7 +69,7 @@ class MyHouse extends CGFobject {
         }
     }
 
-    drawRoof() {
+    displayRoof() {
         this.scene.pushMatrix();
         this.scene.translate(0, this.houseHeight * 2 + 0.3, 0);
         this.scene.scale(this.houseWidth, this.houseHeight, this.houseLength);
@@ -87,7 +87,7 @@ class MyHouse extends CGFobject {
         this.scene.popMatrix();
     }
 
-    drawColumns() {
+    displayColumns() {
         this.scene.column.apply();
         this.scene.pushMatrix();
         this.scene.translate(this.roofWidth / 2 + 0.3, 0, this.roofLength / 2 + 0.3);
@@ -112,7 +112,7 @@ class MyHouse extends CGFobject {
         this.scene.popMatrix();
     }
 
-    drawchimney() {
+    displaychimney() {
         this.scene.pushMatrix();
         this.scene.translate(1, this.houseHeight * 2 + 2.5, 0);
         this.scene.scale(0.5, 1, 0.5);
@@ -140,9 +140,9 @@ class MyHouse extends CGFobject {
 
         this.displayDoor();
         this.displayWindows();
-        this.drawRoof();
-        this.drawColumns();
-        this.drawchimney();
+        this.displayRoof();
+        this.displayColumns();
+        this.displaychimney();
  
     }
 
