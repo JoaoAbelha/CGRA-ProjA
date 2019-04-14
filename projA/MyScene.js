@@ -180,6 +180,14 @@ class MyScene extends CGFscene {
         this.roofTop.loadTexture('images/rooftop1.jpg');
         this.roofTop.setTextureWrap('REPEAT', 'REPEAT');
 
+        this.column = new CGFappearance(this);
+        this.column.setAmbient(1, 1, 1, 1);
+        this.column.setDiffuse(0.9, 0.9, 0.9, 1);
+        this.column.setSpecular(0.4, 0.4, 0.4, 1);
+        this.column.setShininess(10.0);
+        this.column.loadTexture('images/column.jpg');
+        this.column.setTextureWrap('REPEAT', 'REPEAT');
+
         this.tatchedRoofTop = new CGFappearance(this);
         this.tatchedRoofTop.setAmbient(1, 1, 1, 1);
         this.tatchedRoofTop.setDiffuse(0.9, 0.9, 0.9, 1);

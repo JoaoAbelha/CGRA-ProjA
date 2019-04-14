@@ -88,6 +88,7 @@ class MyHouse extends CGFobject {
     }
 
     drawColumns() {
+        this.scene.column.apply();
         this.scene.pushMatrix();
         this.scene.translate(this.roofWidth / 2 + 0.3, 0, this.roofLength / 2 + 0.3);
         this.scene.scale(0.3, this.houseHeight * 2 + 0.6, 0.3);
@@ -194,6 +195,7 @@ class MyHouse extends CGFobject {
              this.scene.translate(translations[3*col], translations[3*col+1], translations[3*col+2]);
              this.scene.scale(0.3, this.houseHeight * 1.5 * 1.4, 0.3);
              this.scene.rotate(ang,1,0,0);
+             this.scene.column.apply();
              this.prism.display();
              this.scene.popMatrix();
          }
