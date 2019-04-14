@@ -78,6 +78,13 @@ class MyHouse extends CGFobject {
         this.scene.roofTop.apply();
         this.pyramid.display();
         this.scene.popMatrix();
+
+        this.scene.pushMatrix();
+        this.scene.translate(0, this.houseHeight *2 + 0.75, 0);
+        this.scene.scale(6.2, 1, 6.5);
+        this.scene.rotate(Math.PI/2, 1, 0, 0);
+        this.quad.display();
+        this.scene.popMatrix();
     }
 
     drawColumns() {
@@ -131,13 +138,9 @@ class MyHouse extends CGFobject {
         this.scene.popMatrix();
 
         this.displayDoor();
-
         this.displayWindows();
-
         this.drawRoof();
-
         this.drawColumns();
-
         this.drawchimney();
  
     }
