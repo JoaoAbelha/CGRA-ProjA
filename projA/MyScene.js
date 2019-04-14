@@ -242,6 +242,14 @@ class MyScene extends CGFscene {
         this.toplight.loadTexture('images/topflashlight.jpg');
         this.toplight.setTextureWrap('REPEAT', 'REPEAT');
 
+        this.woodPool = new CGFappearance(this);
+        this.woodPool.setAmbient(1, 1, 1, 1);
+        this.woodPool.setDiffuse(0.9, 0.9, 0.9, 1);
+        this.woodPool.setSpecular(0.3, 0.4, 0.3, 1);
+        this.woodPool.setShininess(10.0);
+        this.woodPool.loadTexture('images/woodPool.jpg');
+        this.woodPool.setTextureWrap('REPEAT', 'REPEAT');
+
         let slices = 100;
         let stack = 100;
         this.prism = new MyPrism(this, 10 ,100);
@@ -255,7 +263,7 @@ class MyScene extends CGFscene {
         this.image = new MyCubeMap(this);
         this.flashlight = new MyFlashlight(this);
         this.pyramid = new MyPyramid(this,10,stack);
-        this.swimmingPool = new MySwimmingPool(this);
+        this.swimmingPool = new MySwimmingPool(this,1,1,12,8);
         
         this.objects = [this.prism, this.cylinder, this.cone, this.tree, this.groupPatch, this.rowPatch, this.house, this.hill, this.image,this.flashlight, this.pyramid, this.swimmingPool] ;
         this.objectIDs = {'Prism' : 0, 'Cylinder' : 1, 'Cone':2, 'Tree' : 3 , 'Groupesquare':4, 'RowPatch':5, 'House':6 ,"Hill":7, "Image": 8, "Flashlight":9, "pyramid":10, "pool":11};
