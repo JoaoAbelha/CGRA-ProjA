@@ -255,9 +255,10 @@ class MyScene extends CGFscene {
         this.image = new MyCubeMap(this);
         this.flashlight = new MyFlashlight(this);
         this.pyramid = new MyPyramid(this,10,stack);
+        this.swimmingPool = new MySwimmingPool(this);
         
-        this.objects = [this.prism, this.cylinder, this.cone, this.tree, this.groupPatch, this.rowPatch, this.house, this.hill, this.image,this.flashlight, this.pyramid] ;
-        this.objectIDs = {'Prism' : 0, 'Cylinder' : 1, 'Cone':2, 'Tree' : 3 , 'Groupesquare':4, 'RowPatch':5, 'House':6 ,"Hill":7, "Image": 8, "Flashlight":9, "pyramid":10};
+        this.objects = [this.prism, this.cylinder, this.cone, this.tree, this.groupPatch, this.rowPatch, this.house, this.hill, this.image,this.flashlight, this.pyramid, this.swimmingPool] ;
+        this.objectIDs = {'Prism' : 0, 'Cylinder' : 1, 'Cone':2, 'Tree' : 3 , 'Groupesquare':4, 'RowPatch':5, 'House':6 ,"Hill":7, "Image": 8, "Flashlight":9, "pyramid":10, "pool":11};
 
         this.enableTextures(true);
     }

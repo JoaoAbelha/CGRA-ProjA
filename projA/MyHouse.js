@@ -11,7 +11,6 @@ class MyHouse extends CGFobject {
         this.pyramid = new MyPyramid(scene, 4, 1);
         this.prism = new MyPrism(scene, 8, 1);
         this.pyramidRoof = new MyPyramid(scene, 8, 1, true);
-        this.pool = new MyQuad(scene);
         this.prismRoof = new MyPrism(scene, 3, 1, true,true);
         this.roofWidth = 5;
         this.roofLength = 5;
@@ -249,53 +248,14 @@ class MyHouse extends CGFobject {
         this.displayLadder();
     }
 
-    displaySwimmingPool() {
-        this.scene.pool.apply();
-        this.scene.pushMatrix();
-        this.scene.translate(12, 0, 7.5);
-        this.scene.scale(10, 1, 1);
-        this.cube.display();
-        this.scene.popMatrix();
-
-        this.scene.pushMatrix();
-        this.scene.translate(12, 0, 15.5);
-        this.scene.scale(10, 1, 1);
-        this.cube.display();
-        this.scene.popMatrix();
-
-        this.scene.pushMatrix();
-        this.scene.translate(7.5, 0, 11);
-        this.scene.scale(1, 1, 8);
-        this.cube.display();
-        this.scene.popMatrix();
-
-        this.scene.pushMatrix();
-        this.scene.translate(17.5, 0, 11.5);
-        this.scene.scale(1, 1, 9);
-        this.cube.display();
-        this.scene.popMatrix();
-
-        this.scene.pushMatrix();
-        this.scene.translate(12, 0, 12);
-        this.scene.scale(10, 10, 8);
-        this.scene.rotate(-Math.PI / 2, 1, 0, 0);
-        this.scene.water.apply();
-        this.pool.display();
-        this.scene.popMatrix();
-    }
-
     display() {
         this.smallHouse = false; // se true desenhar so a squared house
-        this.displayPool = true; // house has a pool
         if (!this.smallHouse) {
             this.displayPrismalHouse();
             this.displayBalcony();
         }
         this.displaySquaredHouse();
 
-        if (this.displayPool) {
-            this.displaySwimmingPool();
-        }
 
     };
 }
