@@ -84,7 +84,6 @@ class MyPyramid extends CGFobject {
             normal[1] /= nsize;
             normal[2] /= nsize;
 
-            // push normal once for each vertex of this triangle
             this.normals.push(...normal);
             this.normals.push(...normal);
             this.normals.push(...normal);
