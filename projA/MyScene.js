@@ -114,53 +114,8 @@ class MyScene extends CGFscene {
         this.sky.loadTexture('images/cloud1.png');
         this.sky.setTextureWrap('REPEAT', 'REPEAT');
 
-        this.hillsBK = new CGFappearance(this);
-        this.hillsBK.setAmbient(1, 1, 1, 1);
-        this.hillsBK.setDiffuse(0.9, 0.9, 0.9, 1);
-        this.hillsBK.setSpecular(0.4, 0.4, 0.4, 1);
-        this.hillsBK.setShininess(10.0);
-        this.hillsBK.loadTexture('images/sor_hills/hills_bk.JPG');
-        this.hillsBK.setTextureWrap('CLAMP_TO_EDGE', 'CLAMP_TO_EDGE');
-
-        this.hillsDN = new CGFappearance(this);
-        this.hillsDN.setAmbient(1, 1, 1, 1);
-        this.hillsDN.setDiffuse(0.9, 0.9, 0.9, 1);
-        this.hillsDN.setSpecular(0.4, 0.4, 0.4, 1);
-        this.hillsDN.setShininess(10.0);
-        this.hillsDN.loadTexture('images/sor_hills/hills_dn.JPG');
-        this.hillsDN.setTextureWrap('CLAMP_TO_EDGE', 'CLAMP_TO_EDGE');
-
-        this.hillsLF = new CGFappearance(this);
-        this.hillsLF.setAmbient(1, 1, 1, 1);
-        this.hillsLF.setDiffuse(0.9, 0.9, 0.9, 1);
-        this.hillsLF.setSpecular(0.4, 0.4, 0.4, 1);
-        this.hillsLF.setShininess(10.0);
-        this.hillsLF.loadTexture('images/sor_hills/hills_lf.JPG');
-        this.hillsLF.setTextureWrap('CLAMP_TO_EDGE', 'CLAMP_TO_EDGE');
-
-        this.hillsRT = new CGFappearance(this);
-        this.hillsRT.setAmbient(1, 1, 1, 1);
-        this.hillsRT.setDiffuse(0.9, 0.9, 0.9, 1);
-        this.hillsRT.setSpecular(0.4, 0.4, 0.4, 1);
-        this.hillsRT.setShininess(10.0);
-        this.hillsRT.loadTexture('images/sor_hills/hills_rt.JPG');
-        this.hillsRT.setTextureWrap('CLAMP_TO_EDGE', 'CLAMP_TO_EDGE');
-
-        this.hillsFT = new CGFappearance(this);
-        this.hillsFT.setAmbient(1, 1, 1, 1);
-        this.hillsFT.setDiffuse(0.9, 0.9, 0.9, 1);
-        this.hillsFT.setSpecular(0.4, 0.4, 0.4, 1);
-        this.hillsFT.setShininess(10.0);
-        this.hillsFT.loadTexture('images/sor_hills/hills_ft.JPG');
-        this.hillsFT.setTextureWrap('CLAMP_TO_EDGE', 'CLAMP_TO_EDGE');
-
-        this.hillsUP = new CGFappearance(this);
-        this.hillsUP.setAmbient(1, 1, 1, 1);
-        this.hillsUP.setDiffuse(0.9, 0.9, 0.9, 1);
-        this.hillsUP.setSpecular(0.4, 0.4, 0.4, 1);
-        this.hillsUP.setShininess(10.0);
-        this.hillsUP.loadTexture('images/sor_hills/hills_up.JPG');
-        this.hillsUP.setTextureWrap('CLAMP_TO_EDGE', 'CLAMP_TO_EDGE');
+        this.initializeDayCubeMap();
+        this.initializeNightCubeMap();
 
         this.roofTop = new CGFappearance(this);
         this.roofTop.setAmbient(1, 1, 1, 1);
@@ -273,6 +228,107 @@ class MyScene extends CGFscene {
     }
 
 
+    initializeDayCubeMap() {
+        this.hillsBK = new CGFappearance(this);
+        this.hillsBK.setAmbient(1, 1, 1, 1);
+        this.hillsBK.setDiffuse(0.9, 0.9, 0.9, 1);
+        this.hillsBK.setSpecular(0.4, 0.4, 0.4, 1);
+        this.hillsBK.setShininess(10.0);
+        this.hillsBK.loadTexture('images/sor_hills/hills_bk_day.JPG');
+        this.hillsBK.setTextureWrap('CLAMP_TO_EDGE', 'CLAMP_TO_EDGE');
+
+        this.hillsDN = new CGFappearance(this);
+        this.hillsDN.setAmbient(1, 1, 1, 1);
+        this.hillsDN.setDiffuse(0.9, 0.9, 0.9, 1);
+        this.hillsDN.setSpecular(0.4, 0.4, 0.4, 1);
+        this.hillsDN.setShininess(10.0);
+        this.hillsDN.loadTexture('images/sor_hills/hills_dn.JPG');
+        this.hillsDN.setTextureWrap('CLAMP_TO_EDGE', 'CLAMP_TO_EDGE');
+
+        this.hillsLF = new CGFappearance(this);
+        this.hillsLF.setAmbient(1, 1, 1, 1);
+        this.hillsLF.setDiffuse(0.9, 0.9, 0.9, 1);
+        this.hillsLF.setSpecular(0.4, 0.4, 0.4, 1);
+        this.hillsLF.setShininess(10.0);
+        this.hillsLF.loadTexture('images/sor_hills/hills_lf_day.JPG');
+        this.hillsLF.setTextureWrap('CLAMP_TO_EDGE', 'CLAMP_TO_EDGE');
+
+        this.hillsRT = new CGFappearance(this);
+        this.hillsRT.setAmbient(1, 1, 1, 1);
+        this.hillsRT.setDiffuse(0.9, 0.9, 0.9, 1);
+        this.hillsRT.setSpecular(0.4, 0.4, 0.4, 1);
+        this.hillsRT.setShininess(10.0);
+        this.hillsRT.loadTexture('images/sor_hills/hills_rt_day.JPG');
+        this.hillsRT.setTextureWrap('CLAMP_TO_EDGE', 'CLAMP_TO_EDGE');
+
+        this.hillsFT = new CGFappearance(this);
+        this.hillsFT.setAmbient(1, 1, 1, 1);
+        this.hillsFT.setDiffuse(0.9, 0.9, 0.9, 1);
+        this.hillsFT.setSpecular(0.4, 0.4, 0.4, 1);
+        this.hillsFT.setShininess(10.0);
+        this.hillsFT.loadTexture('images/sor_hills/hills_ft_day.JPG');
+        this.hillsFT.setTextureWrap('CLAMP_TO_EDGE', 'CLAMP_TO_EDGE');
+
+        this.hillsUP = new CGFappearance(this);
+        this.hillsUP.setAmbient(1, 1, 1, 1);
+        this.hillsUP.setDiffuse(0.9, 0.9, 0.9, 1);
+        this.hillsUP.setSpecular(0.4, 0.4, 0.4, 1);
+        this.hillsUP.setShininess(10.0);
+        this.hillsUP.loadTexture('images/sor_hills/hills_up_day.JPG');
+        this.hillsUP.setTextureWrap('CLAMP_TO_EDGE', 'CLAMP_TO_EDGE');
+    }
+
+    initializeNightCubeMap() {
+        this.hillsBKNight = new CGFappearance(this);
+        this.hillsBKNight.setAmbient(1, 1, 1, 1);
+        this.hillsBKNight.setDiffuse(0.9, 0.9, 0.9, 1);
+        this.hillsBKNight.setSpecular(0.4, 0.4, 0.4, 1);
+        this.hillsBKNight.setShininess(10.0);
+        this.hillsBKNight.loadTexture('images/sor_hills/hills_bk.JPG');
+        this.hillsBKNight.setTextureWrap('CLAMP_TO_EDGE', 'CLAMP_TO_EDGE');
+
+    this.hillsDNNight = new CGFappearance(this);
+        this.hillsDNNight.setAmbient(1, 1, 1, 1);
+        this.hillsDNNight.setDiffuse(0.9, 0.9, 0.9, 1);
+        this.hillsDNNight.setSpecular(0.4, 0.4, 0.4, 1);
+        this.hillsDNNight.setShininess(10.0);
+        this.hillsDNNight.loadTexture('images/sor_hills/hills_dn.JPG');
+        this.hillsDNNight.setTextureWrap('CLAMP_TO_EDGE', 'CLAMP_TO_EDGE');
+
+        this.hillsLFNight = new CGFappearance(this);
+        this.hillsLFNight.setAmbient(1, 1, 1, 1);
+        this.hillsLFNight.setDiffuse(0.9, 0.9, 0.9, 1);
+        this.hillsLFNight.setSpecular(0.4, 0.4, 0.4, 1);
+        this.hillsLFNight.setShininess(10.0);
+        this.hillsLFNight.loadTexture('images/sor_hills/hills_lf.JPG');
+        this.hillsLFNight.setTextureWrap('CLAMP_TO_EDGE', 'CLAMP_TO_EDGE');
+
+        this.hillsRTNight = new CGFappearance(this);
+        this.hillsRTNight.setAmbient(1, 1, 1, 1);
+        this.hillsRTNight.setDiffuse(0.9, 0.9, 0.9, 1);
+        this.hillsRTNight.setSpecular(0.4, 0.4, 0.4, 1);
+        this.hillsRTNight.setShininess(10.0);
+        this.hillsRTNight.loadTexture('images/sor_hills/hills_rt.JPG');
+        this.hillsRTNight.setTextureWrap('CLAMP_TO_EDGE', 'CLAMP_TO_EDGE');
+
+        this.hillsFTNight = new CGFappearance(this);
+        this.hillsFTNight.setAmbient(1, 1, 1, 1);
+        this.hillsFTNight.setDiffuse(0.9, 0.9, 0.9, 1);
+        this.hillsFTNight.setSpecular(0.4, 0.4, 0.4, 1);
+        this.hillsFTNight.setShininess(10.0);
+        this.hillsFTNight.loadTexture('images/sor_hills/hills_ft.JPG');
+        this.hillsFTNight.setTextureWrap('CLAMP_TO_EDGE', 'CLAMP_TO_EDGE');
+
+        this.hillsUPNight = new CGFappearance(this);
+        this.hillsUPNight.setAmbient(1, 1, 1, 1);
+        this.hillsUPNight.setDiffuse(0.9, 0.9, 0.9, 1);
+        this.hillsUPNight.setSpecular(0.4, 0.4, 0.4, 1);
+        this.hillsUPNight.setShininess(10.0);
+        this.hillsUPNight.loadTexture('images/sor_hills/hills_up.JPG');
+        this.hillsUPNight.setTextureWrap('CLAMP_TO_EDGE', 'CLAMP_TO_EDGE');
+    }
+
+    
     updateCustomMaterial() {
         var rgba;
 
