@@ -22,8 +22,9 @@ class MySwimmingPool extends CGFobject { // centro da piscina no plano xz (0,0)
 
     displayFloor() {
         this.scene.pushMatrix();
+        const extraDeviation = 0.001;
         let xscale = 2*this.width;
-        this.scene.translate(1,0,1);
+        this.scene.translate(1,extraDeviation,1);
         this.scene.scale(xscale,1, 20);
         this.scene.rotate(-Math.PI / 2, 1, 0, 0);
         

@@ -386,7 +386,7 @@ class MyScene extends CGFscene {
 
         //luz dia- sol
         this.lights[0].setPosition(0, 20, 0, 1);
-        this.lights[0].setAmbient(0.945, 0.855, 0.643, 1.0);
+        //this.lights[0].setAmbient(0.945, 0.855, 0.643, 1.0);
         this.lights[0].setDiffuse(0.945, 0.855, 0.643, 1.0);
         this.lights[0].setSpecular(0.945, 0.855, 0.643, 1.0);
         this.lights[0].setConstantAttenuation(1);
@@ -397,9 +397,9 @@ class MyScene extends CGFscene {
         this.lights[0].update();
         //luz noite 
         this.lights[1].setPosition(0, 15, 0, 1);
-        this.lights[1].setAmbient(0.133, 0.247, 0.949, 1.0);
-        this.lights[1].setDiffuse(0.133, 0.247, 0.949, 1.0);
-        this.lights[1].setSpecular(0.133, 0.247, 0.949, 1.0);
+        //this.lights[1].setAmbient(0.033, 0.247, 0.450, 1.0);
+        this.lights[1].setDiffuse(0.033, 0.247, 0.450, 1.0);
+        this.lights[1].setSpecular(0.033, 0.247, 0.450, 1.0);
         this.lights[1].setConstantAttenuation(1);
         this.lights[1].setLinearAttenuation(0.05);
         this.lights[1].setQuadraticAttenuation(0.0);
