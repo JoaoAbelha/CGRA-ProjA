@@ -1,6 +1,10 @@
 /**
 * MyPyramid
 * @constructor
+* @param scene Reference to MyScene object
+* @param slices Number of sides
+* @param stacks Number of normals throughout the edges
+* @param visible - Flag to manipulate the base visibility of the pyramid (default is false)
 */
 class MyPyramid extends CGFobject {
     constructor(scene, slices, stacks, visibleBase) {
@@ -14,7 +18,7 @@ class MyPyramid extends CGFobject {
         }
         this.initBuffers();
     }
-    addBase(ang,alphaAng) {
+    addBase(ang, alphaAng) {
         for (var i = 0; i < this.slices; i++) {
             var sa = Math.sin(ang);
             var ca = Math.cos(ang);
@@ -29,13 +33,13 @@ class MyPyramid extends CGFobject {
         this.vertices.push(0, 0, 0);
         this.texCoords.push(0.5, 0);
         this.normals.push(0, -1, 0);
-    
 
-    let index = this.slices * 3 + this.slices;
 
-    for (var i = 1; i <= this.slices + 1; i++) {
-        this.indices.push(index, index - i, index - i - 1);
-    }
+        let index = this.slices * 3 + this.slices;
+
+        for (var i = 1; i <= this.slices + 1; i++) {
+            this.indices.push(index, index - i, index - i - 1);
+        }
     }
     initBuffers() {
         this.vertices = [];
@@ -92,7 +96,7 @@ class MyPyramid extends CGFobject {
 
         //base
         if (this.base) {
-         this.addBase(ang,alphaAng);
+            this.addBase(ang, alphaAng);
         }
 
         this.primitiveType = this.scene.gl.TRIANGLES;
