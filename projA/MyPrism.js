@@ -42,9 +42,9 @@ class MyPrism extends CGFobject {
     }
   }
 
-  drawTop(indexNumber) {
+  drawTop(lastVertex) {
      for (let i = 1; i < this.slices * 2; i++) {
-       this.indices.push(indexNumber + this.slices * 2 - i, indexNumber + this.slices * 2 + 1 - i, indexNumber + this.slices * 2 + 1);
+       this.indices.push(lastVertex + this.slices * 2 - i, lastVertex + this.slices * 2 + 1 - i, lastVertex + this.slices * 2 + 1);
     }
   }
 
@@ -62,58 +62,54 @@ class MyPrism extends CGFobject {
     this.normals = [];
     this.texCoords = [];
 
-    let alphaAng = 2 * Math.PI / this.slices;
+    let ang = 2 * Math.PI / this.slices;
     let stack = 1 / this.stacks;
 
-    if (this.base || this.top) { //why top
+    if (this.base || this.top) { 
       this.addBaseCoords();
     }
 
     for (let k = 0; k <= this.stacks; k++) {
       for (let i = 0; i < this.slices; i++) {
 
-        this.vertices.push(Math.cos(alphaAng * i), Math.sin(alphaAng * i), k * stack);
-        this.vertices.push(Math.cos((i + 1) * alphaAng), Math.sin((i + 1) * alphaAng), k * stack);
+        this.vertices.push(Math.cos(ang * i), Math.sin(ang * i), k * stack);
+        this.vertices.push(Math.cos((i + 1) * ang), Math.sin((i + 1) * ang), k * stack);
 
-        this.normals.push(Math.cos(alphaAng * i + alphaAng / 2), Math.sin(alphaAng * i + alphaAng / 2), 0);
-        this.normals.push(Math.cos(alphaAng * i + alphaAng / 2), Math.sin(alphaAng * i + alphaAng / 2), 0);
+        this.normals.push(Math.cos(ang * i + ang / 2), Math.sin(ang * i + ang / 2), 0);
+        this.normals.push(Math.cos(ang * i + ang / 2), Math.sin(ang * i + ang / 2), 0);
 
         this.texCoords.push(
           0, k * 1 / this.stacks,
           1, k * 1 / this.stacks,
         );
-
       }
     }
 
     if (this.top) {
-
       this.addTopCoords();
     }
 
-    var indexNumber = 2 * this.slices * this.stacks;
+    var lastVertex = 2 * this.slices * this.stacks;
 
     if (this.base && !this.top) {
       this.drawBase();
-      this.addIndices(1, indexNumber);
+      this.addIndices(1, lastVertex);
     } 
     else if (!this.base && this.top) {
-      this.drawTop(indexNumber);
-      this.addIndices(1, indexNumber);
+      this.drawTop(lastVertex);
+      this.addIndices(1, lastVertex);
     }
     else if (this.base && this.top) {
       this.drawBase();
-      this.drawTop(indexNumber);
-      this.addIndices(1, indexNumber + 1);
+      this.drawTop(lastVertex);
+      this.addIndices(1, lastVertex + 1);
     }
     else {
-      this.addIndices(0, indexNumber);
+      this.addIndices(0, lastVertex);
     }
     
     this.primitiveType = this.scene.gl.TRIANGLES;
     this.initGLBuffers();
   };
-
-
 };
 

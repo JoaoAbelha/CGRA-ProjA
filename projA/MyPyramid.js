@@ -83,17 +83,9 @@ class MyPyramid extends CGFobject {
         for (var i = 1; i <= this.slices + 1; i++) {
             this.indices.push(index, index - i, index - i - 1);
         }
-
   
         this.primitiveType = this.scene.gl.TRIANGLES;
         this.initGLBuffers();
-    }
-    updateBuffers(complexity){
-        this.slices = 3 + Math.round(9 * complexity); //complexity varies 0-1, so slices varies 3-12
-
-        // reinitialize buffers
-        this.initBuffers();
-        this.initNormalVizBuffers();
     }
 }
 
