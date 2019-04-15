@@ -80,25 +80,25 @@ class MyScene extends CGFscene {
 
     initializePoolTextures() {
         this.water = new CGFappearance(this);
-        this.water.setAmbient(0.6, 0.6, 0.9, 1);
-        this.water.setDiffuse(0.8, 0.8, 0.9, 1);
-        this.water.setSpecular(0.9, 0.9, 0.9, 1);
+        this.water.setAmbient(0.9, 0.95, 1, 1);
+        this.water.setDiffuse(0.1, 0.1, 0.1, 1);
+        this.water.setSpecular(0.9, 0.95, 1, 1);
         this.water.setShininess(200.0);
         this.water.loadTexture('images/water.jpg');
         this.water.setTextureWrap('REPEAT', 'REPEAT');
 
         this.pool = new CGFappearance(this);
-        this.pool.setAmbient(1, 1, 1, 1);
-        this.pool.setDiffuse(0.9, 0.9, 0.9, 1);
-        this.pool.setSpecular(0.4, 0.4, 0.4, 1);
+        this.pool.setAmbient(0.9, 0.95, 1, 1);
+        this.pool.setDiffuse(0.1, 0.1, 0.1, 1);
+        this.pool.setSpecular(0.9, 0.95, 1, 1);
         this.pool.setShininess(10.0);
         this.pool.loadTexture('images/poolfloor.jpg');
         this.pool.setTextureWrap('REPEAT', 'REPEAT');
 
         this.woodPool = new CGFappearance(this);
-        this.woodPool.setAmbient(0.85, 0.8, 0.6, 1);
-        this.woodPool.setDiffuse(0.85, 0.8, 0.6, 1);
-        this.woodPool.setSpecular(0.1, 0.1, 0.1, 1);
+        this.woodPool.setAmbient(0.85, 0.8, 0.55, 1);
+        this.woodPool.setDiffuse(0.85, 0.8, 0.55, 1);
+        this.woodPool.setSpecular(0.01, 0.01, 0.01, 1);
         this.woodPool.setShininess(1.0);
         this.woodPool.loadTexture('images/woodPool2.jpg');
         this.woodPool.setTextureWrap('REPEAT', 'REPEAT');
