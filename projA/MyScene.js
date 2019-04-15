@@ -162,8 +162,8 @@ class MyScene extends CGFscene {
         this.hillsDN.setDiffuse(0.9, 0.9, 0.9, 1);
         this.hillsDN.setSpecular(0.4, 0.4, 0.4, 1);
         this.hillsDN.setShininess(10.0);
-        this.hillsDN.loadTexture('images/sor_hills/hills_dn.JPG');
-        this.hillsDN.setTextureWrap('CLAMP_TO_EDGE', 'CLAMP_TO_EDGE');
+        this.hillsDN.loadTexture('images/mineTop.png');
+        this.hillsDN.setTextureWrap('REPEAT', 'REPEAT');
 
         this.hillsLF = new CGFappearance(this);
         this.hillsLF.setAmbient(1, 1, 1, 1);
