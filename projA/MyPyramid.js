@@ -19,9 +19,6 @@ class MyPyramid extends CGFobject {
         var alphaAng = 2*Math.PI/this.slices;
 
         for(var i = 0; i < this.slices; i++){
-            // All vertices have to be declared for a given face
-            // even if they are shared with others, as the normals 
-            // in each face will be different
 
             var sa=Math.sin(ang);
             var saa=Math.sin(ang+alphaAng);
@@ -35,14 +32,12 @@ class MyPyramid extends CGFobject {
             this.vertices.push(caa, 0, -saa);
             this.texCoords.push(1, 1);
 
-            // triangle normal computed by cross product of two edges
             var normal= [
                 saa-sa,
                 ca*saa-sa*caa,
                 caa-ca
             ];
 
-            // normalization
             var nsize=Math.sqrt(
                 normal[0]*normal[0]+
                 normal[1]*normal[1]+
@@ -52,7 +47,6 @@ class MyPyramid extends CGFobject {
             normal[1]/=nsize;
             normal[2]/=nsize;
 
-            // push normal once for each vertex of this triangle
             this.normals.push(...normal);
             this.normals.push(...normal);
             this.normals.push(...normal);
@@ -62,7 +56,6 @@ class MyPyramid extends CGFobject {
             ang+=alphaAng;
         }
 
-        //base
         for (var i = 0;i < this.slices; i++) {
             var sa=Math.sin(ang);
             var ca=Math.cos(ang);
