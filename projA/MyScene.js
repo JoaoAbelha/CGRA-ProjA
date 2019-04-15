@@ -251,49 +251,49 @@ class MyScene extends CGFscene {
 
     initializeHouseTextures() {
         this.roofTop = new CGFappearance(this);
-        this.roofTop.setAmbient(1, 1, 1, 1);
-        this.roofTop.setDiffuse(0.9, 0.9, 0.9, 1);
-        this.roofTop.setSpecular(0.4, 0.4, 0.4, 1);
-        this.roofTop.setShininess(10.0);
+        this.roofTop.setAmbient(0.5, 0.5, 0.5, 1);
+        this.roofTop.setDiffuse(0.5, 0.5, 0.5, 1);
+        this.roofTop.setSpecular(0.01, 0.01, 0.01, 1);
+        this.roofTop.setShininess(1.0);
         this.roofTop.loadTexture('images/rooftop1.jpg');
         this.roofTop.setTextureWrap('REPEAT', 'REPEAT');
 
         this.column = new CGFappearance(this);
-        this.column.setAmbient(1, 1, 1, 1);
-        this.column.setDiffuse(0.9, 0.9, 0.9, 1);
-        this.column.setSpecular(0.4, 0.4, 0.4, 1);
-        this.column.setShininess(10.0);
+        this.column.setAmbient(0.5, 0.5, 0.5, 1);
+        this.column.setDiffuse(0.5, 0.5, 0.5, 1);
+        this.column.setSpecular(0.1, 0.1, 0.1, 1);
+        this.column.setShininess(1.0);
         this.column.loadTexture('images/column.jpg');
         this.column.setTextureWrap('REPEAT', 'REPEAT');
 
         this.tatchedRoofTop = new CGFappearance(this);
-        this.tatchedRoofTop.setAmbient(1, 1, 1, 1);
-        this.tatchedRoofTop.setDiffuse(0.9, 0.9, 0.9, 1);
-        this.tatchedRoofTop.setSpecular(0.4, 0.4, 0.4, 1);
-        this.tatchedRoofTop.setShininess(10.0);
+        this.tatchedRoofTop.setAmbient(0.9, 0.85, 0.45, 1);
+        this.tatchedRoofTop.setDiffuse(0.9, 0.85, 0.45, 1);
+        this.tatchedRoofTop.setSpecular(0.01, 0.01, 0.01, 1);
+        this.tatchedRoofTop.setShininess(1.0);
         this.tatchedRoofTop.loadTexture('images/tatchedroof.jpg');
         this.tatchedRoofTop.setTextureWrap('REPEAT', 'REPEAT');
 
         this.woodenFloor = new CGFappearance(this);
-        this.woodenFloor.setAmbient(1, 1, 1, 1);
-        this.woodenFloor.setDiffuse(0.9, 0.9, 0.9, 1);
-        this.woodenFloor.setSpecular(0.4, 0.4, 0.4, 1);
-        this.woodenFloor.setShininess(10.0);
+        this.woodenFloor.setAmbient(0.6, .25, 0.05, 1);
+        this.woodenFloor.setDiffuse(0.6, 0.25, 0.05, 1);
+        this.woodenFloor.setSpecular(0.01, 0.01, 0.01, 1);
+        this.woodenFloor.setShininess(1.0);
         this.woodenFloor.loadTexture('images/woodenfloor.jpg');
         this.woodenFloor.setTextureWrap('REPEAT', 'REPEAT');
 
         this.balcony = new CGFappearance(this);
-        this.balcony.setAmbient(1, 1, 1, 1);
-        this.balcony.setDiffuse(0.9, 0.9, 0.9, 1);
-        this.balcony.setSpecular(0.4, 0.4, 0.4, 1);
-        this.balcony.setShininess(10.0);
+        this.balcony.setAmbient(0.6, .25, 0.05, 1);
+        this.balcony.setDiffuse(0.6, .25, 0.05, 1);
+        this.balcony.setSpecular(0.01, 0.01, 0.01, 1);
+        this.balcony.setShininess(1.0);
         this.balcony.loadTexture('images/balcony.jpg');
         this.balcony.setTextureWrap('REPEAT', 'REPEAT');
 
         this.brickwall = new CGFappearance(this);
-        this.brickwall.setAmbient(1, 1, 1, 1);
+        this.brickwall.setAmbient(1, 1, 0.6, 1);
         this.brickwall.setDiffuse(0.9, 0.9, 0.9, 1);
-        this.brickwall.setSpecular(0.4, 0.4, 0.4, 1);
+        this.brickwall.setSpecular(0.01, 0.01, 0.01, 1);
         this.brickwall.setShininess(10.0);
         this.brickwall.loadTexture('images/wall2.jpg');
         this.brickwall.setTextureWrap('REPEAT', 'REPEAT');
@@ -301,24 +301,24 @@ class MyScene extends CGFscene {
         this.whitewall = new CGFappearance(this);
         this.whitewall.setAmbient(1, 1, 1, 1);
         this.whitewall.setDiffuse(0.9, 0.9, 0.9, 1);
-        this.whitewall.setSpecular(0.4, 0.4, 0.4, 1);
-        this.whitewall.setShininess(10.0);
+        this.whitewall.setSpecular(0.01, 0.01, 0.01, 1);
+        this.whitewall.setShininess(1.0);
         this.whitewall.loadTexture('images/whitewall.jpg');
         this.whitewall.setTextureWrap('REPEAT', 'REPEAT');
 
         this.door = new CGFappearance(this);
-        this.door.setAmbient(1, 1, 1, 1);
-        this.door.setDiffuse(0.9, 0.9, 0.9, 1);
-        this.door.setSpecular(0.4, 0.4, 0.4, 1);
-        this.door.setShininess(10.0);
+        this.door.setAmbient(0.75, 0.85, 0.85, 1);
+        this.door.setDiffuse(0.2, 0.7, 0.45, 1);
+        this.door.setSpecular(0.01, 0.01, 0.01, 1);
+        this.door.setShininess(1.0);
         this.door.loadTexture('images/door2.jpg');
         this.door.setTextureWrap('REPEAT', 'REPEAT');
 
         this.window = new CGFappearance(this);
-        this.window.setAmbient(1, 1, 1, 1);
-        this.window.setDiffuse(0.9, 0.9, 0.9, 1);
-        this.window.setSpecular(0.4, 0.4, 0.4, 1);
-        this.window.setShininess(10.0);
+        this.window.setAmbient(0.9, 0.95, 1, 1);
+        this.window.setDiffuse(0.9, 0.95, 1, 1);
+        this.window.setSpecular(0.01, 0.01, 0.01, 1);
+        this.window.setShininess(1.0);
         this.window.loadTexture('images/window.jpg');
         this.window.setTextureWrap('REPEAT', 'REPEAT');
     }
