@@ -71,9 +71,10 @@ class MyScene extends CGFscene {
         this.flashlight = new MyFlashlight(this);
         this.pyramid = new MyPyramid(this, 10, stack);
         this.swimmingPool = new MySwimmingPool(this, 1, 1, 12, 8);
+        this.streetLight = new MyStreetLamp(this,1,1);
 
-        this.objects = [this.prism, this.cylinder, this.cone, this.tree, this.groupPatch, this.rowPatch, this.house, this.hill, this.image, this.flashlight, this.pyramid, this.swimmingPool];
-        this.objectIDs = { 'Prism': 0, 'Cylinder': 1, 'Cone': 2, 'Tree': 3, 'Groupesquare': 4, 'RowPatch': 5, 'House': 6, "Hill": 7, "Image": 8, "Flashlight": 9, "pyramid": 10, "pool": 11 };
+        this.objects = [this.prism, this.cylinder, this.cone, this.tree, this.groupPatch, this.rowPatch, this.house, this.hill, this.image, this.flashlight, this.pyramid, this.swimmingPool,this.streetLight];
+        this.objectIDs = { 'Prism': 0, 'Cylinder': 1, 'Cone': 2, 'Tree': 3, 'Groupesquare': 4, 'RowPatch': 5, 'House': 6, "Hill": 7, "Image": 8, "Flashlight": 9, "pyramid": 10, "pool": 11,"street light":12 };
         this.environmentIDs = { 'Day': 0, 'Night 1': 1};
     }
 
@@ -374,6 +375,17 @@ class MyScene extends CGFscene {
 
     }
 
+    initLampLights() {
+        // ciclo para luzes dos candeeiros
+        this.lights[2].setPosition(0, 0.5, 0, 1); //posicao a passar para o cosntrutor
+        this.lights[2].setDiffuse(1.0, 1.0, 1.0, 1.0);
+        this.lights[2].setConstantAttenuation(1);
+        this.lights[2].setLinearAttenuation(0.0);
+        this.lights[2].setQuadraticAttenuation(0.05);
+        this.lights[2].enable();
+        this.lights[2].setVisible(true);
+        this.lights[2].update();
+    }
 
     initLights() {
         this.setGlobalAmbientLight(0.8, 0.8, 0.8, 1.0);
@@ -396,16 +408,8 @@ class MyScene extends CGFscene {
         this.lights[1].enable();
         this.lights[1].setVisible(true);
         this.lights[1].update();
-        //another luz noite
-        this.lights[2].setPosition(0, 0.5, 0, 1);
-        this.lights[2].setDiffuse(1.0, 1.0, 1.0, 1.0);
-        this.lights[2].setConstantAttenuation(1);
-        this.lights[2].setLinearAttenuation(0.0);
-        this.lights[2].setQuadraticAttenuation(0.05);
-        this.lights[2].enable();
-        this.lights[2].setVisible(true);
-        this.lights[2].update();
-
+        
+        this.initLampLights();
 
 
     }
