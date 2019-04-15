@@ -106,18 +106,18 @@ class MyScene extends CGFscene {
 
     initializeTreeTextures() {
         this.trunk = new CGFappearance(this);
-        this.trunk.setAmbient(0.6, 0.6, 0.6, 1);
-        this.trunk.setDiffuse(0.8, 0.8, 0.8, 1);
-        this.trunk.setSpecular(0.8, 0.9, 0.8, 1);
-        this.trunk.setShininess(200.0);
+        this.trunk.setAmbient(0.85, 0.8, 0.55, 1);
+        this.trunk.setDiffuse(0.85, 0.8, 0.55, 1);
+        this.trunk.setSpecular(0.01, 0.01, 0.01, 1);
+        this.trunk.setShininess(1.0);
         this.trunk.loadTexture('images/trunk.jpg');
         this.trunk.setTextureWrap('REPEAT', 'REPEAT');
 
         this.treetop = new CGFappearance(this);
-        this.treetop.setAmbient(0.6, 0.6, 0.6, 1);
-        this.treetop.setDiffuse(0.8, 0.8, 0.8, 1);
-        this.treetop.setSpecular(0.8, 0.9, 0.8, 1);
-        this.treetop.setShininess(200.0);
+        this.treetop.setAmbient(0.55, 0.95, 0.55, 1);
+        this.treetop.setDiffuse(0.55, 0.95, 0.55, 1);
+        this.treetop.setSpecular(0.01, 0.01, 0.01, 1);
+        this.treetop.setShininess(1.0);
         this.treetop.loadTexture('images/treetop.jpg');
         this.treetop.setTextureWrap('REPEAT', 'REPEAT');
     }
