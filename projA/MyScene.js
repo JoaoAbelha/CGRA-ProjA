@@ -124,26 +124,26 @@ class MyScene extends CGFscene {
 
     initializeVoxeHillTextures() {
         this.side = new CGFappearance(this);
-        this.side.setAmbient(0.1, 0.1, 0.1, 1);
-        this.side.setDiffuse(0.9, 0.9, 0.9, 1);
-        this.side.setSpecular(0.1, 0.1, 0.1, 1);
-        this.side.setShininess(10.0);
+        this.side.setAmbient(0.85, 0.8, 0.55, 1);
+        this.side.setDiffuse(0.85, 0.8, 0.55, 1);
+        this.side.setSpecular(0.01, 0.01, 0.01, 1);
+        this.side.setShininess(1.0);
         this.side.loadTexture('images/mineSide.png');
         this.side.setTextureWrap('REPEAT', 'REPEAT');
 
         this.top = new CGFappearance(this);
-        this.top.setAmbient(0.1, 0.1, 0.1, 1);
-        this.top.setDiffuse(0.9, 0.9, 0.9, 1);
-        this.top.setSpecular(0.1, 0.1, 0.1, 1);
-        this.top.setShininess(10.0);
+        this.top.setAmbient(0.55, 0.95, 0.55, 1);
+        this.top.setDiffuse(0.55, 0.95, 0.55, 1);
+        this.top.setSpecular(0.01, 0.01, 0.01, 1);
+        this.top.setShininess(1.0);
         this.top.loadTexture('images/mineTop.png');
         this.top.setTextureWrap('REPEAT', 'REPEAT');
 
         this.bottom = new CGFappearance(this);
-        this.bottom.setAmbient(0.1, 0.1, 0.1, 1);
-        this.bottom.setDiffuse(0.9, 0.9, 0.9, 1);
-        this.bottom.setSpecular(0.1, 0.1, 0.1, 1);
-        this.bottom.setShininess(10.0);
+        this.bottom.setAmbient(0.85, 0.8, 0.55, 1);
+        this.bottom.setDiffuse(0.85, 0.8, 0.55, 1);
+        this.bottom.setSpecular(0.01, 0.01, 0.01, 1);
+        this.bottom.setShininess(1.0);
         this.bottom.loadTexture('images/mineBottom.png');
         this.bottom.setTextureWrap('REPEAT', 'REPEAT');
     }
