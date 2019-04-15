@@ -61,6 +61,29 @@ class MyPyramid extends CGFobject {
 
             ang+=alphaAng;
         }
+
+        //base
+        for (var i = 0;i < this.slices; i++) {
+            var sa=Math.sin(ang);
+            var ca=Math.cos(ang);
+
+            this.vertices.push(ca, 0, -sa);
+            this.texCoords.push(i % 2, 1);
+            this.normals.push(0, -1, 0);
+
+            ang+=alphaAng;
+        }
+
+        this.vertices.push(0, 0, 0);
+        this.texCoords.push(0.5, 0);
+        this.normals.push(0, -1, 0);
+
+        let index = this.slices * 3 + this.slices;
+
+        for (var i = 1; i <= this.slices + 1; i++) {
+            this.indices.push(index, index - i, index - i - 1);
+        }
+
   
         this.primitiveType = this.scene.gl.TRIANGLES;
         this.initGLBuffers();
