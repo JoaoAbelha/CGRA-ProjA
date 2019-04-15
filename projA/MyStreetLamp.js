@@ -18,10 +18,10 @@ class MyStreetLamp extends CGFobject { // centro da piscina no plano xz (0,0)
         this.pole.display();
         this.scene.popMatrix();
 
-      this.scene.pushMatrix();
+        this.scene.pushMatrix();
         this.scene.translate(this.x, hight, this.z);
         this.lamp.display();
-      this.scene.popMatrix();
+        this.scene.popMatrix();
 
     }
 

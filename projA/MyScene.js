@@ -10,19 +10,13 @@ class MyScene extends CGFscene {
         super.init(application);
         this.initCameras();
         this.initLights();
-
-        //Background color
         this.gl.clearColor(0.0, 0.0, 0.0, 1.0);
-
         this.gl.clearDepth(100.0);
         this.gl.enable(this.gl.DEPTH_TEST);
         this.gl.enable(this.gl.CULL_FACE);
         this.gl.depthFunc(this.gl.LEQUAL);
-
         this.initializeTextures();
-
         this.initializeObjects();
-
         this.enableTextures(true);
     }
 
@@ -45,7 +39,7 @@ class MyScene extends CGFscene {
         this.selectedEnvironment = 0;
         this.displayNormals = false;
         this.texturesEnabled = true;
-        this.ambientLight = 0.8;
+        this.ambientLight = 0.3;
 
         this.customMaterialValues = {
             'Ambient': '#0000ff',
@@ -75,7 +69,7 @@ class MyScene extends CGFscene {
 
         this.objects = [this.prism, this.cylinder, this.cone, this.tree, this.groupPatch, this.rowPatch, this.house, this.hill, this.image, this.flashlight, this.pyramid, this.swimmingPool,this.streetLight];
         this.objectIDs = { 'Prism': 0, 'Cylinder': 1, 'Cone': 2, 'Tree': 3, 'Groupesquare': 4, 'RowPatch': 5, 'House': 6, "Hill": 7, "Image": 8, "Flashlight": 9, "pyramid": 10, "pool": 11,"street light":12 };
-        this.environmentIDs = { 'Day': 0, 'Night 1': 1};
+        this.environmentIDs = { 'Day': 0, 'Night': 1};
     }
 
 
@@ -213,8 +207,8 @@ class MyScene extends CGFscene {
         this.hillsDNNight.setDiffuse(0.9, 0.9, 0.9, 1);
         this.hillsDNNight.setSpecular(0.4, 0.4, 0.4, 1);
         this.hillsDNNight.setShininess(10.0);
-        this.hillsDNNight.loadTexture('images/sor_hills/hills_dn.JPG');
-        this.hillsDNNight.setTextureWrap('CLAMP_TO_EDGE', 'CLAMP_TO_EDGE');
+        this.hillsDNNight.loadTexture('images/mineTop.png');
+        this.hillsDNNight.setTextureWrap('REPEAT', 'REPEAT');
 
         this.hillsLFNight = new CGFappearance(this);
         this.hillsLFNight.setAmbient(1, 1, 1, 1);
@@ -388,11 +382,13 @@ class MyScene extends CGFscene {
     }
 
     initLights() {
-        this.setGlobalAmbientLight(0.8, 0.8, 0.8, 1.0);
+        this.setGlobalAmbientLight(0.3, 0.3, 0.3, 1.0);
 
         //luz dia- sol
         this.lights[0].setPosition(0, 20, 0, 1);
+        this.lights[0].setAmbient(0.945, 0.855, 0.643, 1.0);
         this.lights[0].setDiffuse(0.945, 0.855, 0.643, 1.0);
+        this.lights[0].setSpecular(0.945, 0.855, 0.643, 1.0);
         this.lights[0].setConstantAttenuation(1);
         this.lights[0].setLinearAttenuation(0.0);
         this.lights[0].setQuadraticAttenuation(0.0);
@@ -401,7 +397,9 @@ class MyScene extends CGFscene {
         this.lights[0].update();
         //luz noite 
         this.lights[1].setPosition(0, 15, 0, 1);
-        this.lights[1].setDiffuse(0.133, 0.247, 0.349, 1.0);
+        this.lights[1].setAmbient(0.133, 0.247, 0.949, 1.0);
+        this.lights[1].setDiffuse(0.133, 0.247, 0.949, 1.0);
+        this.lights[1].setSpecular(0.133, 0.247, 0.949, 1.0);
         this.lights[1].setConstantAttenuation(1);
         this.lights[1].setLinearAttenuation(0.05);
         this.lights[1].setQuadraticAttenuation(0.0);
@@ -420,14 +418,7 @@ class MyScene extends CGFscene {
     updateAmbientLight() {
         this.setGlobalAmbientLight(this.ambientLight, this.ambientLight, this.ambientLight, 1.0);
     } 
-
-
-    setDefaultAppearance() {
-        this.setAmbient(0.2, 0.4, 0.8, 1.0);
-        this.setDiffuse(0.2, 0.4, 0.8, 1.0);
-        this.setSpecular(0.2, 0.4, 0.8, 1.0);
-        this.setShininess(10.0);
-    }
+    
     display() {
         // ---- BEGIN Background, camera and axis setup
         // Clear image and depth buffer everytime we update the scene
@@ -452,10 +443,6 @@ class MyScene extends CGFscene {
         this.axis.display();
 
 
-
-        //Apply default appearance
-        this.setDefaultAppearance();
-
         var sca = [this.scaleFactor, 0.0, 0.0, 0.0,
             0.0, this.scaleFactor, 0.0, 0.0,
             0.0, 0.0, this.scaleFactor, 0.0,
@@ -473,14 +460,76 @@ class MyScene extends CGFscene {
             this.enableTextures(true);
         else
             this.enableTextures(false);
+        
+        this.house.display();
+        this.image.display();
 
-        if (this.displayNormals)
-            this.objects[this.selectedObject].enableNormalViz();
-        else
-            this.objects[this.selectedObject].disableNormalViz();
+        //montanhas atrás da casa
+        this.pushMatrix();
+        this.translate(-10, 0, -15);
+        this.hill.display();
+        this.popMatrix();
 
-        this.objects[this.selectedObject].display();
+        this.pushMatrix();
+        this.translate(10, 0, -15);
+        this.hill.display();
+        this.popMatrix();
 
+        //arvores entre as montanhas
+        this.pushMatrix();
+        this.translate(0, 0, -5);
+        this.rotate(Math.PI / 2 , 0, 1, 0);
+        this.rowPatch.display();
+        this.popMatrix();
+        
+        //arvores ao lado da casa
+        this.pushMatrix();
+        this.translate(-15, 0, -5);
+        this.groupPatch.display();
+        this.popMatrix();
+
+        this.pushMatrix();
+        this.translate(20, 0, -5);
+        this.groupPatch.display();
+        this.popMatrix();
+
+        //piscina
+        this.pushMatrix();
+        this.translate(0, 0, 20);
+        this.rotate(Math.PI / 2, 0, 1, 0);
+        this.swimmingPool.display();
+        this.popMatrix();
+
+        //lampadas à volta da piscina
+        this.pushMatrix();
+        this.translate(-9, 0, 11);
+        this.streetLight.display();
+        this.popMatrix();
+
+        this.pushMatrix();
+        this.translate(9, 0, 11);
+        this.streetLight.display();
+        this.popMatrix();
+
+        this.pushMatrix();
+        this.translate(-9, 0, 25);
+        this.streetLight.display();
+        this.popMatrix();
+
+        this.pushMatrix();
+        this.translate(9, 0, 25);
+        this.streetLight.display();
+        this.popMatrix();
+
+        //arvores depois da piscina
+        this.pushMatrix();
+        this.translate(-9, 0, 28);
+        this.rowPatch.display();
+        this.popMatrix();
+
+
+
+//
         // ---- END Primitive drawing section
     }
 }

@@ -21,7 +21,7 @@ class MyCubeMap extends CGFobject {
         this.scene.pushMatrix();
 
         const pi = Math.PI;
-        this.scene.scale(100, 50, 100);
+        this.scene.scale(70, 50, 70);
         this.scene.translate(0, 0.5, 0);
         this.scene.pushMatrix();
         this.scene.rotate(pi / 2, 0, 1, 0);
@@ -39,8 +39,8 @@ class MyCubeMap extends CGFobject {
 
         this.scene.rotate(pi / 2, 0, 1, 0);
         this.scene.rotate(pi / 2, 1, 0, 0);
-        this.scene.translate(0, 0, 0.5);
-        let newCoords = [0, 0, 100.0, 0, 0, 100.0, 100.0, 100.0];
+        this.scene.translate(0, -0.001, 0.5);
+        let newCoords = [0, 0, 20.0, 0, 0, 20.0, 20.0, 20.0];
         this.bottom.updateTexCoords(newCoords);
 
 
