@@ -8,7 +8,7 @@ class MyHouse extends CGFobject {
         super(scene);
         this.cube = new MyUnitCubeQuad(scene);
         this.quad = new MyQuad(scene);
-        this.pyramid = new MyPyramid(scene, 4, 1);
+        this.pyramid = new MyPyramid(scene, 4, 1,true);
         this.prism = new MyPrism(scene, 8, 1);
         this.pyramidRoof = new MyPyramid(scene, 8, 1, true);
         this.prismRoof = new MyPrism(scene, 3, 1, true,true);
@@ -76,13 +76,6 @@ class MyHouse extends CGFobject {
         this.scene.rotate(Math.PI / 4, 0, 1, 0);
         this.scene.roofTop.apply();
         this.pyramid.display();
-        this.scene.popMatrix();
-
-        this.scene.pushMatrix();
-        this.scene.translate(0, this.houseHeight *2 + 0.75, 0);
-        this.scene.scale(6.2, 1, 6.5);
-        this.scene.rotate(Math.PI/2, 1, 0, 0);
-        this.quad.display();
         this.scene.popMatrix();
     }
 
