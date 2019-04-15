@@ -24,6 +24,7 @@ class MyScene extends CGFscene {
         this.scaleFactor = 1;
 
         this.selectedObject = 0;
+        this.selectedEnvironment = 0;
         this.displayNormals = false;
         this.texturesEnabled = true;
         this.ambientLight = 0.8;
@@ -266,6 +267,7 @@ class MyScene extends CGFscene {
         
         this.objects = [this.prism, this.cylinder, this.cone, this.tree, this.groupPatch, this.rowPatch, this.house, this.hill, this.image,this.flashlight, this.pyramid, this.swimmingPool] ;
         this.objectIDs = {'Prism' : 0, 'Cylinder' : 1, 'Cone':2, 'Tree' : 3 , 'Groupesquare':4, 'RowPatch':5, 'House':6 ,"Hill":7, "Image": 8, "Flashlight":9, "pyramid":10, "pool":11};
+        this.environmentIDs = {'Day' : 0, 'Night 1' : 1, 'Night 2' : 2};
 
         this.enableTextures(true);
     }
@@ -366,9 +368,15 @@ class MyScene extends CGFscene {
         // Apply transformations corresponding to the camera position relative to the origin
         this.applyViewMatrix();
 
-        this.lights[0].update();
-        this.lights[1].update();
-        this.lights[2].update();
+        if (this.selectedEnvironment == 0) {
+            this.lights[0].update();
+        }
+        else if (this.selectedEnvironment == 1) {
+            this.lights[1].update();
+        }
+        else {
+            this.lights[2].update();
+        }
 
         // Draw axis
         this.axis.display();

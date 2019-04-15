@@ -21,6 +21,7 @@ class MyInterface extends CGFinterface {
         this.gui.add(this.scene, 'selectedObject', this.scene.objectIDs).name('Selected Object');
         this.gui.add(this.scene, 'displayNormals').name("Display normals");
         this.gui.add(this.scene, 'texturesEnabled').name("Display textures");
+        this.gui.add(this.scene, 'selectedEnvironment', this.scene.environmentIDs).name('Selected Environment');
         this.gui.add(this.scene, 'ambientLight', 0.01, 1.0).onChange(this.scene.updateAmbientLight.bind(this.scene));
         
         var f0 = this.gui.addFolder('Light 0 ');
