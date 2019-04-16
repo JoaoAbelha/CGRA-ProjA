@@ -34,8 +34,6 @@ class MyScene extends CGFscene {
         //Initialize scene objects
         this.axis = new CGFaxis(this);
         this.scaleFactor = 1;
-
-        this.selectedEnvironment = 0;
         this.displayNormals = false;
         this.texturesEnabled = true;
         this.ambientLight = 1;
@@ -52,6 +50,7 @@ class MyScene extends CGFscene {
         this.streetLight = new MyStreetLamp(this, 1, 1);
 
 
+        this.selectedEnvironment = 0;
         this.environmentIDs = { 'Day': 0, 'Night': 1 };
     }
 
@@ -319,6 +318,13 @@ class MyScene extends CGFscene {
         this.toplight.setTextureWrap('REPEAT', 'REPEAT');
     }
 
+    updateTextures() {
+        if (this.texturesEnabled)
+            this.enableTextures(true);
+        else
+            this.enableTextures(false);
+    }
+
 
     initLampLights() {
         this.nrLamps = 4;
@@ -372,6 +378,33 @@ class MyScene extends CGFscene {
 
 
     }
+
+    updateLights() {
+        if (this.selectedEnvironment == 0) {
+            this.lights[1].disable();
+            this.lights[1].update();
+            this.lights[0].enable();
+            this.lights[0].update();
+
+            for (let i = 2; i < 2 + this.nrLamps; i++) {
+                this.lights[i].disable();
+                this.lights[i].update();
+            }
+
+        }
+        else {
+            this.lights[0].disable();
+            this.lights[0].update();
+            this.lights[1].enable();
+            this.lights[1].update();
+
+            for (let i = 2; i < 2 + this.nrLamps; i++) {
+                this.lights[i].enable();
+                this.lights[i].update();
+            }
+        }
+    }
+
     initCameras() {
         this.camera = new CGFcamera(0.4, 0.1, 500, vec3.fromValues(15, 15, 15), vec3.fromValues(0, 0, 0));
     }
@@ -404,37 +437,6 @@ class MyScene extends CGFscene {
         this.multMatrix(sca);
 
         // ---- BEGIN Primitive drawing section
-
-
-        if (this.texturesEnabled)
-            this.enableTextures(true);
-        else
-            this.enableTextures(false);
-
-        if (this.selectedEnvironment == 0) {
-            this.lights[1].disable();
-            this.lights[1].update();
-            this.lights[0].enable();
-            this.lights[0].update();
-
-            for (let i = 2; i < 2 + this.nrLamps; i++) {
-                this.lights[i].disable();
-                this.lights[i].update();
-            }
-
-        }
-        else {
-            this.lights[0].disable();
-            this.lights[0].update();
-            this.lights[1].enable();
-            this.lights[1].update();
-
-            for (let i = 2; i < 2 + this.nrLamps; i++) {
-                this.lights[i].enable();
-                this.lights[i].update();
-            }
-        }
-
 
         this.house.display();
         this.image.display();
