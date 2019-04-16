@@ -34,10 +34,10 @@ class MyScene extends CGFscene {
         //Initialize scene objects
         this.axis = new CGFaxis(this);
         this.scaleFactor = 1;
-        this.displayNormals = false;
         this.texturesEnabled = true;
         this.lampsOn = false;
         this.ambientLight = 1;
+        this.displayAxis = true;
 
 
         let stack = 100;
@@ -51,7 +51,7 @@ class MyScene extends CGFscene {
         this.swimmingPool = new MySwimmingPool(this, 1, 1, 12, 8);
         this.streetLight = new MyStreetLamp(this, 1, 1);
 
-
+        this.axis = new CGFaxis(this);
         this.selectedEnvironment = 0;
         this.environmentIDs = { 'Day': 0, 'Night': 1 };
     }
@@ -432,6 +432,9 @@ class MyScene extends CGFscene {
         this.applyViewMatrix();
 
         // Draw axis
+        if (this.displayAxis)
+            this.axis.display();
+        
 
 
 
