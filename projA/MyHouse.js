@@ -4,7 +4,7 @@
  */
 
 class MyHouse extends CGFobject {
-    constructor(scene) {
+    constructor(scene, mansion) {
         super(scene);
         this.cube = new MyUnitCubeQuad(scene);
         this.quad = new MyQuad(scene);
@@ -17,6 +17,7 @@ class MyHouse extends CGFobject {
         this.houseWidth = 4.5;
         this.houseLength = 5;
         this.houseHeight = 2.5;
+        this.mansion=mansion;
 
     };
 
@@ -86,7 +87,7 @@ class MyHouse extends CGFobject {
         this.scene.scale(0.3, this.houseHeight * 2 + 0.6, 0.3);
         this.scene.rotate(-Math.PI / 2, 1, 0, 0);
 
-        if (this.smallHouse) {
+        if (!this.mansion) {
             this.prism.display();
         }
 
@@ -97,7 +98,7 @@ class MyHouse extends CGFobject {
 
         this.scene.translate(this.houseLength * 3.7, 0, 0);
 
-        if (this.smallHouse) {
+        if (!this.mansion) {
              this.prism.display();
         }
 
@@ -242,11 +243,12 @@ class MyHouse extends CGFobject {
     }
 
     display() {
-        this.smallHouse = false; // se true desenhar so a squared house
-        if (!this.smallHouse) {
+        
+        if (this.mansion) {
             this.displayPrismalHouse();
             this.displayBalcony();
         }
+
         this.displaySquaredHouse();
 
 

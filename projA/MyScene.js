@@ -43,7 +43,8 @@ class MyScene extends CGFscene {
         let stack = 100;
         this.groupPatch = new MyTreeGroupPatch(this, this.trunk, this.treetop);
         this.rowPatch = new MyTreeRowPatch(this, this.trunk, this.treetop);
-        this.house = new MyHouse(this);
+        this.house = new MyHouse(this,true);
+        this.smallHouse = new MyHouse(this,false);
         this.hill = new MyVoxelHill(this, 8);
         this.image = new MyCubeMap(this);
         this.pyramid = new MyPyramid(this, 10, stack);
@@ -446,6 +447,13 @@ class MyScene extends CGFscene {
 
         this.house.display();
         this.image.display();
+
+         //smaller house
+         this.pushMatrix();
+         this.translate(-20, 0, 10);
+         this.smallHouse.display();
+         this.popMatrix();
+ 
 
         //montanhas atrás da casa
         this.pushMatrix();
