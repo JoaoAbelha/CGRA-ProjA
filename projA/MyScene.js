@@ -33,7 +33,6 @@ class MyScene extends CGFscene {
     initializeObjects() {
         //Initialize scene objects
         this.axis = new CGFaxis(this);
-        this.scaleFactor = 1;
         this.texturesEnabled = true;
         this.lampsOn = false;
         this.ambientLight = 1;
@@ -428,18 +427,6 @@ class MyScene extends CGFscene {
         // Draw axis
         if (this.displayAxis)
             this.axis.display();
-        
-
-
-
-        var sca = [this.scaleFactor, 0.0, 0.0, 0.0,
-            0.0, this.scaleFactor, 0.0, 0.0,
-            0.0, 0.0, this.scaleFactor, 0.0,
-            0.0, 0.0, 0.0, 1.0];
-
-
-        this.multMatrix(sca);
-
 
         for (let i = 0; i < 2 + this.nrLamps; i++) {
             this.lights[i].update();

@@ -15,9 +15,7 @@ class MyInterface extends CGFinterface {
         
         var obj = this;
 
-        //Slider element in GUI
-        this.gui.add(this.scene, 'scaleFactor', 0.1, 5).name('Scale Factor');
-        
+        //Slider element in GUI        
         this.gui.add(this.scene, 'displayAxis').name('Display Axis');
         this.gui.add(this.scene, 'lampsOn').name("Turn On Lamps").onChange(this.scene.updateStreeLamps.bind(this.scene));
         this.gui.add(this.scene, 'texturesEnabled').name("Display textures").onChange(this.scene.updateTextures.bind(this.scene));
