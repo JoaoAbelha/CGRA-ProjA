@@ -35,28 +35,22 @@ class MyScene extends CGFscene {
         this.axis = new CGFaxis(this);
         this.scaleFactor = 1;
 
-        this.selectedObject = 0;
         this.selectedEnvironment = 0;
         this.displayNormals = false;
         this.texturesEnabled = true;
         this.ambientLight = 0.3;
 
 
-        let slices = 100;
         let stack = 100;
-        this.prism = new MyPrism(this, 10, 100);
-        this.cylinder = new MyCylinder(this, 100, 100);
-        this.cone = new MyCone(this, 100, 100, true);
-        this.tree = new MyTree(this, slices, stack, 1.5, 0.5, 2, 1, this.trunk, this.treetop);
         this.groupPatch = new MyTreeGroupPatch(this, this.trunk, this.treetop);
         this.rowPatch = new MyTreeRowPatch(this, this.trunk, this.treetop);
         this.house = new MyHouse(this);
         this.hill = new MyVoxelHill(this, 8);
         this.image = new MyCubeMap(this);
-        this.flashlight = new MyFlashlight(this);
         this.pyramid = new MyPyramid(this, 10, stack);
         this.swimmingPool = new MySwimmingPool(this, 1, 1, 12, 8);
         this.streetLight = new MyStreetLamp(this,1,1);
+
 
         this.environmentIDs = { 'Day': 0, 'Night': 1};
     }
@@ -184,7 +178,7 @@ class MyScene extends CGFscene {
 
     initializeNightCubeMapTextures() {
         this.hillsBKNight = new CGFappearance(this);
-        this.hillsBKNight.setAmbient(1, 1, 1, 1);
+        this.hillsBKNight.setAmbient(0.5, 0.5, 0.5, 1);
         this.hillsBKNight.setDiffuse(0.9, 0.9, 0.9, 1);
         this.hillsBKNight.setSpecular(0.4, 0.4, 0.4, 1);
         this.hillsBKNight.setShininess(10.0);
@@ -192,7 +186,7 @@ class MyScene extends CGFscene {
         this.hillsBKNight.setTextureWrap('CLAMP_TO_EDGE', 'CLAMP_TO_EDGE');
 
         this.hillsDNNight = new CGFappearance(this);
-        this.hillsDNNight.setAmbient(1, 1, 1, 1);
+        this.hillsDNNight.setAmbient(0.5, 0.5, 0.5, 1);
         this.hillsDNNight.setDiffuse(0.9, 0.9, 0.9, 1);
         this.hillsDNNight.setSpecular(0.4, 0.4, 0.4, 1);
         this.hillsDNNight.setShininess(10.0);
@@ -200,7 +194,7 @@ class MyScene extends CGFscene {
         this.hillsDNNight.setTextureWrap('REPEAT', 'REPEAT');
 
         this.hillsLFNight = new CGFappearance(this);
-        this.hillsLFNight.setAmbient(1, 1, 1, 1);
+        this.hillsLFNight.setAmbient(0.5, 0.5, 0.5, 1);
         this.hillsLFNight.setDiffuse(0.9, 0.9, 0.9, 1);
         this.hillsLFNight.setSpecular(0.4, 0.4, 0.4, 1);
         this.hillsLFNight.setShininess(10.0);
@@ -208,7 +202,7 @@ class MyScene extends CGFscene {
         this.hillsLFNight.setTextureWrap('CLAMP_TO_EDGE', 'CLAMP_TO_EDGE');
 
         this.hillsRTNight = new CGFappearance(this);
-        this.hillsRTNight.setAmbient(1, 1, 1, 1);
+        this.hillsRTNight.setAmbient(0.5, 0.5, 0.5, 1);
         this.hillsRTNight.setDiffuse(0.9, 0.9, 0.9, 1);
         this.hillsRTNight.setSpecular(0.4, 0.4, 0.4, 1);
         this.hillsRTNight.setShininess(10.0);
@@ -216,7 +210,7 @@ class MyScene extends CGFscene {
         this.hillsRTNight.setTextureWrap('CLAMP_TO_EDGE', 'CLAMP_TO_EDGE');
 
         this.hillsFTNight = new CGFappearance(this);
-        this.hillsFTNight.setAmbient(1, 1, 1, 1);
+        this.hillsFTNight.setAmbient(0.5, 0.5, 0.5, 1);
         this.hillsFTNight.setDiffuse(0.9, 0.9, 0.9, 1);
         this.hillsFTNight.setSpecular(0.4, 0.4, 0.4, 1);
         this.hillsFTNight.setShininess(10.0);
@@ -224,7 +218,7 @@ class MyScene extends CGFscene {
         this.hillsFTNight.setTextureWrap('CLAMP_TO_EDGE', 'CLAMP_TO_EDGE');
 
         this.hillsUPNight = new CGFappearance(this);
-        this.hillsUPNight.setAmbient(1, 1, 1, 1);
+        this.hillsUPNight.setAmbient(0.5, 0.5, 0.5, 1);
         this.hillsUPNight.setDiffuse(0.9, 0.9, 0.9, 1);
         this.hillsUPNight.setSpecular(0.4, 0.4, 0.4, 1);
         this.hillsUPNight.setShininess(10.0);
@@ -327,15 +321,25 @@ class MyScene extends CGFscene {
 
  
     initLampLights() {
-        // ciclo para luzes dos candeeiros
-        this.lights[2].setPosition(0, 0.5, 0, 1); //posicao a passar para o cosntrutor
-        this.lights[2].setDiffuse(1.0, 1.0, 1.0, 1.0);
-        this.lights[2].setConstantAttenuation(1);
-        this.lights[2].setLinearAttenuation(0.0);
-        this.lights[2].setQuadraticAttenuation(0.05);
-        this.lights[2].enable();
-        this.lights[2].setVisible(true);
-        this.lights[2].update();
+        this.nrLamps = 4;
+
+        let lampHight = 3.5;
+        this.lightsPos = [-9,lampHight,11, // first lamp
+                          9,lampHight,11, //second lamp
+                          9,lampHight,25, // third lamp
+                         -9,lampHight,28]; // forth lamp
+
+        // for (let i = 2; i < 2 + this.nrLamps; i++) 
+
+            this.lights[2].setPosition(0, 1, 1.5, 1);
+            this.lights[2].setDiffuse(1.0, 1.0, 1.0, 1.0);
+            this.lights[2].setConstantAttenuation(1);
+            this.lights[2].setLinearAttenuation(0.0);
+            this.lights[2].setQuadraticAttenuation(1.5);
+            this.lights[2].enable();
+            this.lights[2].setVisible(true);
+            this.lights[2].update();
+        
     }
 
     initLights() {
@@ -410,8 +414,6 @@ class MyScene extends CGFscene {
 
         // ---- BEGIN Primitive drawing section
 
-        // apply materials
-
 
         if (this.texturesEnabled)
             this.enableTextures(true);
@@ -484,9 +486,6 @@ class MyScene extends CGFscene {
         this.rowPatch.display();
         this.popMatrix();
 
-
-
-//
         // ---- END Primitive drawing section
     }
 }
