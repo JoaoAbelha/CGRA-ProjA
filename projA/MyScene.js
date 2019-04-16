@@ -59,7 +59,7 @@ class MyScene extends CGFscene {
     initializePoolTextures() {
         this.water = new CGFappearance(this);
         this.water.setAmbient(0.9, 0.95, 1, 1);
-        this.water.setDiffuse(0.1, 0.1, 0.1, 1);
+        this.water.setDiffuse(0.6, 0.6, 0.7, 1);
         this.water.setSpecular(0.9, 0.95, 1, 1);
         this.water.setShininess(200.0);
         this.water.loadTexture('images/water.jpg');
@@ -67,7 +67,7 @@ class MyScene extends CGFscene {
 
         this.pool = new CGFappearance(this);
         this.pool.setAmbient(0.9, 0.95, 1, 1);
-        this.pool.setDiffuse(0.1, 0.1, 0.1, 1);
+        this.pool.setDiffuse(0.4, 0.4, 0.5, 1);
         this.pool.setSpecular(0.9, 0.95, 1, 1);
         this.pool.setShininess(10.0);
         this.pool.loadTexture('images/poolfloor.jpg');
