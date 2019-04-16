@@ -19,6 +19,7 @@ class MyInterface extends CGFinterface {
         this.gui.add(this.scene, 'scaleFactor', 0.1, 5).name('Scale Factor');
         
         this.gui.add(this.scene, 'displayNormals').name("Display normals");
+        this.gui.add(this.scene, 'lampsOn').name("Turn On Lamps").onChange(this.scene.updateStreeLamps.bind(this.scene));
         this.gui.add(this.scene, 'texturesEnabled').name("Display textures").onChange(this.scene.updateTextures.bind(this.scene));
         this.gui.add(this.scene, 'selectedEnvironment', this.scene.environmentIDs).name('Selected Environment').onChange(this.scene.updateLights.bind(this.scene));    
                 
