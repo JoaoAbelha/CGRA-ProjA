@@ -5,7 +5,7 @@ class MyStreetLamp extends CGFobject { // centro da piscina no plano xz (0,0)
         this.pole = new MyCylinder(scene, 25, 25,false,false);
         this.x=x;
         this.z = z;
-        
+
     };
 
     display() {

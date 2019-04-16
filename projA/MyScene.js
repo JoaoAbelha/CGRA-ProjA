@@ -38,7 +38,7 @@ class MyScene extends CGFscene {
         this.selectedEnvironment = 0;
         this.displayNormals = false;
         this.texturesEnabled = true;
-        this.ambientLight = 0.3;
+        this.ambientLight = 1;
 
 
         let stack = 100;
@@ -49,10 +49,10 @@ class MyScene extends CGFscene {
         this.image = new MyCubeMap(this);
         this.pyramid = new MyPyramid(this, 10, stack);
         this.swimmingPool = new MySwimmingPool(this, 1, 1, 12, 8);
-        this.streetLight = new MyStreetLamp(this,1,1);
+        this.streetLight = new MyStreetLamp(this, 1, 1);
 
 
-        this.environmentIDs = { 'Day': 0, 'Night': 1};
+        this.environmentIDs = { 'Day': 0, 'Night': 1 };
     }
 
 
@@ -229,7 +229,7 @@ class MyScene extends CGFscene {
 
     initializeHouseTextures() {
         this.roofTop = new CGFappearance(this);
-        this.roofTop.setAmbient(0.5, 0.5, 0.5, 1);
+        this.roofTop.setAmbient(0.3, 0.3, 0.3, 1);
         this.roofTop.setDiffuse(0.5, 0.5, 0.5, 1);
         this.roofTop.setSpecular(0.01, 0.01, 0.01, 1);
         this.roofTop.setShininess(1.0);
@@ -237,7 +237,7 @@ class MyScene extends CGFscene {
         this.roofTop.setTextureWrap('REPEAT', 'REPEAT');
 
         this.column = new CGFappearance(this);
-        this.column.setAmbient(0.5, 0.5, 0.5, 1);
+        this.column.setAmbient(0.3, 0.3, 0.3, 1);
         this.column.setDiffuse(0.5, 0.5, 0.5, 1);
         this.column.setSpecular(0.1, 0.1, 0.1, 1);
         this.column.setShininess(1.0);
@@ -245,7 +245,7 @@ class MyScene extends CGFscene {
         this.column.setTextureWrap('REPEAT', 'REPEAT');
 
         this.tatchedRoofTop = new CGFappearance(this);
-        this.tatchedRoofTop.setAmbient(0.9, 0.85, 0.45, 1);
+        this.tatchedRoofTop.setAmbient(0.7, 0.65, 0.25, 1);
         this.tatchedRoofTop.setDiffuse(0.9, 0.85, 0.45, 1);
         this.tatchedRoofTop.setSpecular(0.01, 0.01, 0.01, 1);
         this.tatchedRoofTop.setShininess(1.0);
@@ -253,7 +253,7 @@ class MyScene extends CGFscene {
         this.tatchedRoofTop.setTextureWrap('REPEAT', 'REPEAT');
 
         this.woodenFloor = new CGFappearance(this);
-        this.woodenFloor.setAmbient(0.6, .25, 0.05, 1);
+        this.woodenFloor.setAmbient(0.4, 0.05, 0.005, 1);
         this.woodenFloor.setDiffuse(0.6, 0.25, 0.05, 1);
         this.woodenFloor.setSpecular(0.01, 0.01, 0.01, 1);
         this.woodenFloor.setShininess(1.0);
@@ -261,7 +261,7 @@ class MyScene extends CGFscene {
         this.woodenFloor.setTextureWrap('REPEAT', 'REPEAT');
 
         this.balcony = new CGFappearance(this);
-        this.balcony.setAmbient(0.6, .25, 0.05, 1);
+        this.balcony.setAmbient(0.4, 0.05, 0.005, 1);
         this.balcony.setDiffuse(0.6, .25, 0.05, 1);
         this.balcony.setSpecular(0.01, 0.01, 0.01, 1);
         this.balcony.setShininess(1.0);
@@ -269,15 +269,15 @@ class MyScene extends CGFscene {
         this.balcony.setTextureWrap('REPEAT', 'REPEAT');
 
         this.brickwall = new CGFappearance(this);
-        this.brickwall.setAmbient(1, 1, 0.6, 1);
+        this.brickwall.setAmbient(0.8, 0.8, 0.4, 1);
         this.brickwall.setDiffuse(0.9, 0.9, 0.9, 1);
         this.brickwall.setSpecular(0.01, 0.01, 0.01, 1);
-        this.brickwall.setShininess(10.0);
+        this.brickwall.setShininess(1.0);
         this.brickwall.loadTexture('images/wall2.jpg');
         this.brickwall.setTextureWrap('REPEAT', 'REPEAT');
 
         this.whitewall = new CGFappearance(this);
-        this.whitewall.setAmbient(1, 1, 1, 1);
+        this.whitewall.setAmbient(0.7, 0.7, 0.7, 1);
         this.whitewall.setDiffuse(0.9, 0.9, 0.9, 1);
         this.whitewall.setSpecular(0.01, 0.01, 0.01, 1);
         this.whitewall.setShininess(1.0);
@@ -285,7 +285,7 @@ class MyScene extends CGFscene {
         this.whitewall.setTextureWrap('REPEAT', 'REPEAT');
 
         this.door = new CGFappearance(this);
-        this.door.setAmbient(0.75, 0.85, 0.85, 1);
+        this.door.setAmbient(0.55, 0.65, 0.65, 1);
         this.door.setDiffuse(0.2, 0.7, 0.45, 1);
         this.door.setSpecular(0.01, 0.01, 0.01, 1);
         this.door.setShininess(1.0);
@@ -293,7 +293,7 @@ class MyScene extends CGFscene {
         this.door.setTextureWrap('REPEAT', 'REPEAT');
 
         this.window = new CGFappearance(this);
-        this.window.setAmbient(0.9, 0.95, 1, 1);
+        this.window.setAmbient(0.7, 0.75, 0.8, 1);
         this.window.setDiffuse(0.9, 0.95, 1, 1);
         this.window.setSpecular(0.01, 0.01, 0.01, 1);
         this.window.setShininess(1.0);
@@ -303,71 +303,71 @@ class MyScene extends CGFscene {
 
     initializeFlashLightTextures() {
         this.sidelight = new CGFappearance(this);
-        this.sidelight.setAmbient(1, 1, 1, 1);
-        this.sidelight.setDiffuse(0.9, 0.9, 0.9, 1);
-        this.sidelight.setSpecular(0.4, 0.4, 0.4, 1);
-        this.sidelight.setShininess(10.0);
+        this.sidelight.setAmbient(0.7, 0.7, 0.7, 0.1);
+        this.sidelight.setDiffuse(0.9, 0.9, 0.9, 0.1);
+        this.sidelight.setSpecular(0.4, 0.4, 0.4, 0.1);
+        this.sidelight.setShininess(1.0);
         this.sidelight.loadTexture('images/sideFlash.jpg');
         this.sidelight.setTextureWrap('REPEAT', 'REPEAT');
 
         this.toplight = new CGFappearance(this);
-        this.toplight.setAmbient(1, 1, 1, 1);
+        this.toplight.setAmbient(0.7, 0.7, 0.7, 1);
         this.toplight.setDiffuse(0.9, 0.9, 0.9, 1);
         this.toplight.setSpecular(0.4, 0.4, 0.4, 1);
-        this.toplight.setShininess(10.0);
+        this.toplight.setShininess(1.0);
         this.toplight.loadTexture('images/topflashlight.jpg');
         this.toplight.setTextureWrap('REPEAT', 'REPEAT');
     }
 
- 
+
     initLampLights() {
         this.nrLamps = 4;
 
         let lampHight = 3.5;
-        this.lightsPos = [-9,lampHight,11, // first lamp
-                          9,lampHight,11, //second lamp
-                          9,lampHight,25, // third lamp
-                         -9,lampHight,28]; // forth lamp
+        this.lightsPos = [-8, lampHight, 12, // first lamp
+            10, lampHight, 12, //second lamp
+            10, lampHight, 26, // third lamp
+        -8, lampHight, 26]; // forth lamp
 
-        // for (let i = 2; i < 2 + this.nrLamps; i++) 
+        for (let i = 0; i < this.nrLamps; i++) {
+            this.lights[i + 2].setPosition(this.lightsPos[i * 3], this.lightsPos[i * 3 + 1], this.lightsPos[i * 3 + 2], 1);
+            this.lights[i + 2].setDiffuse(1.0, 1.0, 1.0, 1.0);
+            this.lights[i + 2].setConstantAttenuation(1);
+            this.lights[i + 2].setLinearAttenuation(0.2);
+            this.lights[i + 2].setQuadraticAttenuation(0.1);
+            this.lights[i + 2].enable();
+            this.lights[i + 2].setVisible(false);
+            this.lights[i + 2].update();
+        }
 
-            this.lights[2].setPosition(0, 1, 1.5, 1);
-            this.lights[2].setDiffuse(1.0, 1.0, 1.0, 1.0);
-            this.lights[2].setConstantAttenuation(1);
-            this.lights[2].setLinearAttenuation(0.0);
-            this.lights[2].setQuadraticAttenuation(1.5);
-            this.lights[2].enable();
-            this.lights[2].setVisible(true);
-            this.lights[2].update();
-        
     }
 
     initLights() {
         this.setGlobalAmbientLight(0.3, 0.3, 0.3, 1.0);
 
         //luz dia- sol
-        this.lights[0].setPosition(0, 20, 0, 1);
-        //this.lights[0].setAmbient(0.945, 0.855, 0.643, 1.0);
+        this.lights[0].setPosition(0, 100, 0, 1);
+        this.lights[0].setAmbient(0.945, 0.855, 0.643, 1.0);
         this.lights[0].setDiffuse(0.945, 0.855, 0.643, 1.0);
         this.lights[0].setSpecular(0.945, 0.855, 0.643, 1.0);
         this.lights[0].setConstantAttenuation(1);
-        this.lights[0].setLinearAttenuation(0.0);
+        this.lights[0].setLinearAttenuation(0.01);
         this.lights[0].setQuadraticAttenuation(0.0);
         this.lights[0].enable();
         this.lights[0].setVisible(true);
         this.lights[0].update();
-        //luz noite 
-        this.lights[1].setPosition(0, 15, 0, 1);
-        //this.lights[1].setAmbient(0.033, 0.247, 0.450, 1.0);
+        // luz noite 
+        this.lights[1].setPosition(0, 50, 0, 1);
+        this.lights[1].setAmbient(0.033, 0.247, 0.450, 1.0);
         this.lights[1].setDiffuse(0.033, 0.247, 0.450, 1.0);
         this.lights[1].setSpecular(0.033, 0.247, 0.450, 1.0);
         this.lights[1].setConstantAttenuation(1);
-        this.lights[1].setLinearAttenuation(0.05);
+        this.lights[1].setLinearAttenuation(0.1);
         this.lights[1].setQuadraticAttenuation(0.0);
         this.lights[1].enable();
         this.lights[1].setVisible(true);
         this.lights[1].update();
-        
+
         this.initLampLights();
 
 
@@ -378,8 +378,8 @@ class MyScene extends CGFscene {
 
     updateAmbientLight() {
         this.setGlobalAmbientLight(this.ambientLight, this.ambientLight, this.ambientLight, 1.0);
-    } 
-    
+    }
+
     display() {
         // ---- BEGIN Background, camera and axis setup
         // Clear image and depth buffer everytime we update the scene
@@ -391,17 +391,8 @@ class MyScene extends CGFscene {
         // Apply transformations corresponding to the camera position relative to the origin
         this.applyViewMatrix();
 
-        if (this.selectedEnvironment == 0) {
-            this.lights[0].update();
-        }
-        else {
-            this.lights[1].update();
-            this.lights[2].update();
-        }
-        
-
         // Draw axis
-        this.axis.display();
+
 
 
         var sca = [this.scaleFactor, 0.0, 0.0, 0.0,
@@ -419,7 +410,32 @@ class MyScene extends CGFscene {
             this.enableTextures(true);
         else
             this.enableTextures(false);
-        
+
+        if (this.selectedEnvironment == 0) {
+            this.lights[1].disable();
+            this.lights[1].update();
+            this.lights[0].enable();
+            this.lights[0].update();
+
+            for (let i = 2; i < 2 + this.nrLamps; i++) {
+                this.lights[i].disable();
+                this.lights[i].update();
+            }
+
+        }
+        else {
+            this.lights[0].disable();
+            this.lights[0].update();
+            this.lights[1].enable();
+            this.lights[1].update();
+
+            for (let i = 2; i < 2 + this.nrLamps; i++) {
+                this.lights[i].enable();
+                this.lights[i].update();
+            }
+        }
+
+
         this.house.display();
         this.image.display();
 
@@ -437,10 +453,10 @@ class MyScene extends CGFscene {
         //arvores entre as montanhas
         this.pushMatrix();
         this.translate(0, 0, -5);
-        this.rotate(Math.PI / 2 , 0, 1, 0);
+        this.rotate(Math.PI / 2, 0, 1, 0);
         this.rowPatch.display();
         this.popMatrix();
-        
+
         //arvores ao lado da casa
         this.pushMatrix();
         this.translate(-15, 0, -5);
