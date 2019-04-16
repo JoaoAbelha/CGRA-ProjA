@@ -343,7 +343,7 @@ class MyScene extends CGFscene {
             this.lights[i + 2].setConstantAttenuation(1);
             this.lights[i + 2].setLinearAttenuation(0.2);
             this.lights[i + 2].setQuadraticAttenuation(0.1);
-            this.lights[i + 2].enable();
+            this.lights[i + 2].disable();
             this.lights[i + 2].setVisible(false);
             this.lights[i + 2].update();
         }
@@ -362,7 +362,7 @@ class MyScene extends CGFscene {
         this.lights[0].setLinearAttenuation(0.01);
         this.lights[0].setQuadraticAttenuation(0.0);
         this.lights[0].enable();
-        this.lights[0].setVisible(true);
+        this.lights[0].setVisible(false);
         this.lights[0].update();
         // luz noite 
         this.lights[1].setPosition(0, 50, 0, 1);
@@ -373,7 +373,7 @@ class MyScene extends CGFscene {
         this.lights[1].setLinearAttenuation(0.1);
         this.lights[1].setQuadraticAttenuation(0.0);
         this.lights[1].enable();
-        this.lights[1].setVisible(true);
+        this.lights[1].setVisible(false);
         this.lights[1].update();
 
         this.initLampLights();
@@ -384,15 +384,11 @@ class MyScene extends CGFscene {
     updateLights() {
         if (this.selectedEnvironment == 0) {
             this.lights[1].disable();
-            this.lights[1].update();
             this.lights[0].enable();
-            this.lights[0].update();
         }
         else {
             this.lights[0].disable();
-            this.lights[0].update();
             this.lights[1].enable();
-            this.lights[1].update();
         }
     }
 
@@ -400,13 +396,11 @@ class MyScene extends CGFscene {
         if (this.lampsOn) {
             for (let i = 2; i < 2 + this.nrLamps; i++) {
                 this.lights[i].enable();
-                this.lights[i].update();
             }
         }
         else {
             for (let i = 2; i < 2 + this.nrLamps; i++) {
                 this.lights[i].disable();
-                this.lights[i].update();
             }
         }
     }
@@ -443,6 +437,10 @@ class MyScene extends CGFscene {
 
         this.multMatrix(sca);
 
+
+        for (let i = 0; i < 2 + this.nrLamps; i++) {
+            this.lights[i].update();
+        }
         // ---- BEGIN Primitive drawing section
 
         this.house.display();

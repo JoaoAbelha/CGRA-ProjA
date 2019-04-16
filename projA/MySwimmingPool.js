@@ -71,7 +71,7 @@ class MySwimmingPool extends CGFobject { // centro da piscina no plano xz (0,0)
         this.cube.display();
         this.scene.popMatrix();
 
-        const extraDeviation = 0.01; // the water must be always visible
+        const extraDeviation = 0.1; // the water must be always visible
         this.scene.pushMatrix();
         this.scene.translate(this.x, extraDeviation, this.z);
         this.scene.scale(this.width, 1, this.length);
