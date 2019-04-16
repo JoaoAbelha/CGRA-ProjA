@@ -41,15 +41,6 @@ class MyScene extends CGFscene {
         this.texturesEnabled = true;
         this.ambientLight = 0.3;
 
-        this.customMaterialValues = {
-            'Ambient': '#0000ff',
-            'Diffuse': '#ff0000',
-            'Specular': '#000000',
-            'Shininess': 10
-        }
-
-        this.customMaterial = new CGFappearance(this);
-        this.updateCustomMaterial();
 
         let slices = 100;
         let stack = 100;
@@ -67,8 +58,6 @@ class MyScene extends CGFscene {
         this.swimmingPool = new MySwimmingPool(this, 1, 1, 12, 8);
         this.streetLight = new MyStreetLamp(this,1,1);
 
-        this.objects = [this.prism, this.cylinder, this.cone, this.tree, this.groupPatch, this.rowPatch, this.house, this.hill, this.image, this.flashlight, this.pyramid, this.swimmingPool,this.streetLight];
-        this.objectIDs = { 'Prism': 0, 'Cylinder': 1, 'Cone': 2, 'Tree': 3, 'Groupesquare': 4, 'RowPatch': 5, 'House': 6, "Hill": 7, "Image": 8, "Flashlight": 9, "pyramid": 10, "pool": 11,"street light":12 };
         this.environmentIDs = { 'Day': 0, 'Night': 1};
     }
 
@@ -336,39 +325,7 @@ class MyScene extends CGFscene {
         this.toplight.setTextureWrap('REPEAT', 'REPEAT');
     }
 
-    updateCustomMaterial() {
-        var rgba;
-
-        this.customMaterial.setAmbient(...this.hexToRgbA(this.customMaterialValues['Ambient']));
-        this.customMaterial.setDiffuse(...this.hexToRgbA(this.customMaterialValues['Diffuse']));
-        this.customMaterial.setSpecular(...this.hexToRgbA(this.customMaterialValues['Specular']));
-
-        this.customMaterial.setShininess(this.customMaterialValues['Shininess']);
-
-    };
-
-    hexToRgbA(hex) {
-        var ret;
-        //either we receive a html/css color or a RGB vector
-        if (/^#([A-Fa-f0-9]{3}){1,2}$/.test(hex)) {
-            ret = [
-                parseInt(hex.substring(1, 3), 16).toPrecision() / 255.0,
-                parseInt(hex.substring(3, 5), 16).toPrecision() / 255.0,
-                parseInt(hex.substring(5, 7), 16).toPrecision() / 255.0,
-                1.0
-            ];
-        }
-        else
-            ret = [
-                hex[0].toPrecision() / 255.0,
-                hex[1].toPrecision() / 255.0,
-                hex[2].toPrecision() / 255.0,
-                1.0
-            ];
-        return ret;
-
-    }
-
+ 
     initLampLights() {
         // ciclo para luzes dos candeeiros
         this.lights[2].setPosition(0, 0.5, 0, 1); //posicao a passar para o cosntrutor
