@@ -303,9 +303,9 @@ class MyScene extends CGFscene {
 
     initializeFlashLightTextures() {
         this.sidelight = new CGFappearance(this);
-        this.sidelight.setAmbient(0.7, 0.7, 0.7, 0.1);
-        this.sidelight.setDiffuse(0.9, 0.9, 0.9, 0.1);
-        this.sidelight.setSpecular(0.4, 0.4, 0.4, 0.1);
+        this.sidelight.setAmbient(0.7, 0.7, 0.7, 1);
+        this.sidelight.setDiffuse(0.9, 0.9, 0.9, 1);
+        this.sidelight.setSpecular(0.4, 0.4, 0.4, 1);
         this.sidelight.setShininess(1.0);
         this.sidelight.loadTexture('images/sideFlash.jpg');
         this.sidelight.setTextureWrap('REPEAT', 'REPEAT');
