@@ -2,6 +2,7 @@
  * MyQuadMap
  * @constructor
  * @param scene - Reference to MyScene object
+ * @param coords - textcoords
  */
 class MyQuadMap extends CGFobject {
 	constructor(scene, coords) {

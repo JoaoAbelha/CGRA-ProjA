@@ -13,7 +13,6 @@ class MyInterface extends CGFinterface {
         // http://workshop.chromeexperiments.com/examples/gui
         this.gui = new dat.GUI();
         
-        var obj = this;
 
         //Slider element in GUI        
         this.gui.add(this.scene, 'displayAxis').name('Display Axis');

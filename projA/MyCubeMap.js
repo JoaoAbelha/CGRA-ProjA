@@ -1,5 +1,5 @@
 /**
- * MyCubeMap
+ * MyCubeMap 
  * @constructor
  * @param scene - Reference to MyScene object
  */
@@ -17,7 +17,6 @@ class MyCubeMap extends CGFobject {
     }
 
     display() {
-        // save transformation matrix 
         this.scene.pushMatrix();
 
         const pi = Math.PI;

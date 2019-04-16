@@ -1,4 +1,11 @@
-class MyStreetLamp extends CGFobject { // centro da piscina no plano xz (0,0)
+/**
+* MyStreetLamp
+* @constructor
+* @param scene 
+* @param x x position
+* @param z  z position
+*/
+class MyStreetLamp extends CGFobject {
     constructor(scene,x,z) {
         super(scene);
         this.lamp = new MyFlashlight(scene);

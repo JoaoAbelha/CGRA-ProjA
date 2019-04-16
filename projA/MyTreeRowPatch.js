@@ -1,6 +1,9 @@
 /**
  * MyTreeRowPatch
  * @constructor
+ * @param scene - Reference to MyScene object
+ * @param trunkTexture - texture of the trunk
+ * @param treepTopTexture - texture of the tree top
  */
 
 class MyTreeRowPatch extends CGFobject {

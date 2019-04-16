@@ -1,6 +1,6 @@
 /**
 * MyCylinder
-* @constructor
+* @constructor 
 * @param scene Reference to MyScene object
 * @param slices Number of sides
 * @param stacks Number of normals throughout the edges

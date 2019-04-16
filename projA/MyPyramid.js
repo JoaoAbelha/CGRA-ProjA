@@ -4,7 +4,7 @@
 * @param scene Reference to MyScene object
 * @param slices Number of sides
 * @param stacks Number of normals throughout the edges
-* @param visible - Flag to manipulate the base visibility of the pyramid (default is false)
+* @param visible - Flag to manipulate the base visibility of the pyramid (default is false) 
 */
 class MyPyramid extends CGFobject {
     constructor(scene, slices, stacks, visibleBase) {

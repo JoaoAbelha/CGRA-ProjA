@@ -1,6 +1,11 @@
 /**
 * MyPrism
 * @constructor
+* @param scene - Reference to MyScene object
+* @param slices Number of sides
+* @param stacks Number of normals throughout the edges
+* @param visibleBase - Flag to manipulate the base visibility of the prism (default is false)
+* @param visibleTop - Flag to manipulate the higher base visibility of the prism (default is false)
 */
 class MyPrism extends CGFobject {
   constructor(scene, slices, stacks, visibleBase, visibleTop) {

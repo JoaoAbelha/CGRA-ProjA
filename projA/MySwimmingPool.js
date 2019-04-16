@@ -1,4 +1,4 @@
-/**
+/** 
 * MySwimmingPool- used to simulate a specular (water) and a diffuse (wooden floor) phenomenon
 * @constructor
 * @param scene Reference to MyScene object
@@ -7,7 +7,7 @@
 * @param length - lenght of the pool
 * @param width - width of the pool
 */
-class MySwimmingPool extends CGFobject { // centro da piscina no plano xz (0,0)
+class MySwimmingPool extends CGFobject { // center of the pool as the reference
     constructor(scene,x,z, length, width) {
         super(scene);
         this.pool = new MyQuad(scene);

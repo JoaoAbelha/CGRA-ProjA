@@ -35,7 +35,7 @@ main=function()
 
     myInterface.setActiveCamera(myScene.camera);
 
-    app.run();
+    app.run(); 
 }
 
 ]);

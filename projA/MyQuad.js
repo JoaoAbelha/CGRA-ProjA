@@ -2,6 +2,7 @@
  * MyQuad
  * @constructor
  * @param scene - Reference to MyScene object
+ * @param coords  - textcoords
  */
 class MyQuad extends CGFobject {
 	constructor(scene, coords) {
@@ -59,6 +60,6 @@ class MyQuad extends CGFobject {
 	 */
 	updateTexCoords(coords) {
 		this.texCoords = [...coords];
-		this.updateTexCoordsGLBuffers();
+		this.updateTexCoordsGLBuffers(); 
 	}
 }

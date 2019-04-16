@@ -1,6 +1,8 @@
 /**
  * MyHouse
  * @constructor
+ * @param scene - Reference to MyScene object
+ * @param mansion - if flag is set house is a mansion
  */
 
 class MyHouse extends CGFobject {
@@ -175,7 +177,7 @@ class MyHouse extends CGFobject {
         this.scene.popMatrix();
     }
 
-    displayBalconyColumns() { // texturess ???????????????????????????
+    displayBalconyColumns() { 
          const ang = -Math.PI/2;
          const translations = [this.houseLength * 2.1 + 0.3, 0, 3.5,  
                          this.houseLength * 2.1 + 0.5 + 6, 0, 3.5,
@@ -194,7 +196,7 @@ class MyHouse extends CGFobject {
          }
     }
 
-    displayRoofPrism() { // FALTA AINDA TERMINAR ESTEEEEEE
+    displayRoofPrism() { 
         this.scene.pushMatrix();
         this.scene.translate(this.houseLength * 2.1 + 3.5, 5.7, -1.7);
         this.scene.scale(4, 1, 5.5);

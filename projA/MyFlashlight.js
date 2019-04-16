@@ -1,8 +1,8 @@
 /**
  * MyFlashlight.js
  * @constructor
+ * @param scene - Reference to MyScene object
  */
-
 class MyFlashlight extends CGFobject {
 
     constructor(scene) {
@@ -11,7 +11,6 @@ class MyFlashlight extends CGFobject {
         this.top = new MyPyramid(scene, 6 ,12);
 
      
-        // a aplicar texturas acrescentar nos objetos
     };
     display() {
         const pi = Math.PI;
